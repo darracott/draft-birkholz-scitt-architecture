@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-09-06T00:47:27.518033+00:00",
+  "timestamp": "2022-09-08T00:44:26.194751+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -883,24 +883,26 @@
       "id": "PR_kwDOG2uWFs413tH1",
       "title": "Architecture changes",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Use correct terminology(Transparency Registry) reflecting the Transparency Architecture as against an implementation terminology of ledger.",
       "createdAt": "2022-04-08T12:25:09Z",
-      "updatedAt": "2022-07-01T16:16:29Z",
+      "updatedAt": "2022-09-07T10:59:04Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "202c61040810b6a58af7b0c1df7c663a97ccdc6d",
       "headRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "headRefName": "architecture-edits",
-      "headRefOid": "bfccf561780ed9d5a93bc619e6209975273a3e47",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "0b5578478b8a7b6a2a6adeac9d0b1bccea7008a1",
+      "closedAt": "2022-09-07T10:59:04Z",
+      "mergedAt": "2022-09-07T10:59:04Z",
+      "mergedBy": "fournet",
+      "mergeCommit": {
+        "oid": "904a1503895435684ada1d8231ad8859580b41a0"
+      },
       "comments": [
         {
           "author": "yogeshbdeshpande",
@@ -917,7 +919,7 @@
             "abbreviatedOid": "bfccf56"
           },
           "author": "joshuagl",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "Ledger does seem prescriptive, and could be read as implying specific implementation technologies. Registries is more generic (though Cloud folks might disagree).",
           "createdAt": "2022-07-01T16:09:14Z",
@@ -1168,25 +1170,33 @@
       "id": "PR_kwDOG2uWFs46z0lN",
       "title": "Minor nits",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "joshuagl",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Very minor fixes spotted on a first read-through of the draft.\r\n\r\n* Fixes two typos\r\n  * edger -> ledger\r\n  * registraton -> registration \r\n* fixes Markdown formatting for lists in the Federation section\r\n* Clarifies a sentence in Security Considerations",
       "createdAt": "2022-07-04T16:52:24Z",
-      "updatedAt": "2022-07-19T15:16:39Z",
+      "updatedAt": "2022-09-07T14:02:59Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "202c61040810b6a58af7b0c1df7c663a97ccdc6d",
       "headRepository": "joshuagl/draft-birkholz-scitt-architecture",
       "headRefName": "joshuagl/minor-nits",
       "headRefOid": "e5cd1c2cf29c42a251bb104e8e83f9c6d6cb8556",
-      "closedAt": null,
+      "closedAt": "2022-09-07T14:02:59Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "These has been fixed in other PRs, thanks",
+          "createdAt": "2022-09-07T14:02:59Z",
+          "updatedAt": "2022-09-07T14:02:59Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOG2uWFs4-NH6U",
@@ -1228,20 +1238,457 @@
       "id": "PR_kwDOG2uWFs4-N5Le",
       "title": "Cheatsheet",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/17",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yogeshbdeshpande",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This document define the key roles and terms used in SCITT Architecture",
       "createdAt": "2022-09-01T14:37:35Z",
-      "updatedAt": "2022-09-01T14:43:05Z",
+      "updatedAt": "2022-09-07T13:21:08Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "202c61040810b6a58af7b0c1df7c663a97ccdc6d",
       "headRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "headRefName": "cheatsheet",
       "headRefOid": "c30cfd9d35b55a0bc155122f525e839afdbcaa08",
+      "closedAt": "2022-09-07T13:21:08Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This is superseeded by #19 which integrates the terminology changes in the architecture and is consistent with the latest charter",
+          "createdAt": "2022-09-07T13:20:32Z",
+          "updatedAt": "2022-09-07T13:21:03Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOG2uWFs4-gSsI",
+      "title": "Clean up registration policies and separate design and implementation",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/18",
+      "state": "MERGED",
+      "author": "ad-l",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-09-07T11:43:15Z",
+      "updatedAt": "2022-09-07T16:21:16Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "904a1503895435684ada1d8231ad8859580b41a0",
+      "headRepository": "ad-l/draft-birkholz-scitt-architecture",
+      "headRefName": "main",
+      "headRefOid": "4c4b44a4fdaace3a922062bbaf730c4b00a433ac",
+      "closedAt": "2022-09-07T16:21:16Z",
+      "mergedAt": "2022-09-07T16:21:16Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "1c79e2fa2c43512462df43eeea9724d6b70b12fe"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5BhNvE",
+          "commit": {
+            "abbreviatedOid": "5f83ac2"
+          },
+          "author": "fournet",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-07T13:54:20Z",
+          "updatedAt": "2022-09-07T13:54:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5BheDY",
+          "commit": {
+            "abbreviatedOid": "5f83ac2"
+          },
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-07T14:32:23Z",
+          "updatedAt": "2022-09-07T14:32:23Z",
+          "comments": [
+            {
+              "originalPosition": 64,
+              "body": "This is too strong. We can't expect all implementations to support all listed policies.",
+              "createdAt": "2022-09-07T14:32:23Z",
+              "updatedAt": "2022-09-07T14:32:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5Bhs-q",
+          "commit": {
+            "abbreviatedOid": "40b64f8"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-09-07T15:08:05Z",
+          "updatedAt": "2022-09-07T15:22:42Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\nA TS that accepts to register any valid claim offered by an issuer would end up providing only limited value to verifiers. In consequence, a baseline transparency guarantee policing the registration of claims is required to ensure completeness of audit, which can help detect equivocation.\r\n```",
+              "createdAt": "2022-09-07T15:08:05Z",
+              "updatedAt": "2022-09-07T15:22:42Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\nMost advanced SCITT scenarios rely on the TS performing additional domain-specific checks before a claim is accepted: TS may only allow trusted authenticated users to register claims, TS may try to check that a new claim is consistent with previous claims from the same issuers or that claims are registered in the correct order and cannot be re-played; some TS may even interpret and validate the payload of claims.\r\n```",
+              "createdAt": "2022-09-07T15:11:17Z",
+              "updatedAt": "2022-09-07T15:22:42Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "```suggestion\r\nIn general, registration policies are applied at the discretion of the TS, and verifiers use receipts as witnesses that confirm that the registration policy of the TS was satisfied at the time claim registration. TS implementations SHOULD make their full registration policy public and auditable, e.g. by recording stateful policy inputs at evaluation time in the registry to ensure that policy can be independently validated later. \r\nFrom an interoperability point of view, the policy that was applied by the TS is opaque to the verifier, who is forced to trust the associated registration policy. If the policy of the TS evolves over time, or is different across issuers, the guarantee derived from receipt validation may not be uniform across all claims over time.\r\n```",
+              "createdAt": "2022-09-07T15:16:04Z",
+              "updatedAt": "2022-09-07T15:22:42Z"
+            },
+            {
+              "originalPosition": 64,
+              "body": "```suggestion\r\nTS implementations MUST indicate their support for registration policies and MUST check that all the policies indicated as defined in the `reg_info` map are supported and are satisfied before a claim can be registered. Any unsupported claims MUST be indicated separately and corresponding unknown policy entries in the map of a claim MUST be rejected. This is to ensure that all verifiers get the same guarantee out of the registration policies regardless of where it is registered.\r\n```\r\n\r\nMaik, et al. Does this improve the wording?",
+              "createdAt": "2022-09-07T15:21:34Z",
+              "updatedAt": "2022-09-07T15:26:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5Bh9-X",
+          "commit": {
+            "abbreviatedOid": "40b64f8"
+          },
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-07T15:45:01Z",
+          "updatedAt": "2022-09-07T15:45:01Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Agree with the first change but not with the second - audit completeness is the only property that *does not* depend on the registration policy, just the fact that the claim is in the append-only registry.\r\n\r\n```suggestion\r\nA TS that accepts to register any valid claim offered by an issuer only provides the baseline audit completeness of transparency to verifiers., which may help detect equivocation but is not enough to filter and police bad claims.\r\n```",
+              "createdAt": "2022-09-07T15:45:01Z",
+              "updatedAt": "2022-09-07T15:45:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5Bh_aM",
+          "commit": {
+            "abbreviatedOid": "40b64f8"
+          },
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-07T15:48:43Z",
+          "updatedAt": "2022-09-07T15:48:43Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "+1",
+              "createdAt": "2022-09-07T15:48:43Z",
+              "updatedAt": "2022-09-07T15:48:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5Bh_cG",
+          "commit": {
+            "abbreviatedOid": "40b64f8"
+          },
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-07T15:48:47Z",
+          "updatedAt": "2022-09-07T15:48:48Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "+1",
+              "createdAt": "2022-09-07T15:48:47Z",
+              "updatedAt": "2022-09-07T15:48:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5BiFHe",
+          "commit": {
+            "abbreviatedOid": "9431d34"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-07T16:03:45Z",
+          "updatedAt": "2022-09-07T16:03:45Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\r\nTS implementations MUST indicate their support for registration policies and MUST check that all the policies indicated as defined in the `reg_info` map are supported and are satisfied before a claim can be registered. Any unsupported claims MUST be indicated separately and corresponding unknown policy entries in the map of a claim MUST be rejected. This is to ensure that all verifiers get the same guarantee out of the registration policies regardless of where it is registered.\r\n```",
+              "createdAt": "2022-09-07T16:03:45Z",
+              "updatedAt": "2022-09-07T16:03:45Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "PR_kwDOG2uWFs4-gVEh",
+      "title": "Terminology",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/19",
+      "state": "MERGED",
+      "author": "fournet",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Terminology update, incorporating changes and discussions from PR#17",
+      "createdAt": "2022-09-07T11:54:22Z",
+      "updatedAt": "2022-09-07T16:26:31Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "904a1503895435684ada1d8231ad8859580b41a0",
+      "headRepository": "fournet/draft-birkholz-scitt-architecture",
+      "headRefName": "terminology",
+      "headRefOid": "f4b8e432835cf048658a2b329e0384a27619a4b7",
+      "closedAt": "2022-09-07T16:26:30Z",
+      "mergedAt": "2022-09-07T16:26:30Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "8bf22f71f19106da13f6da6fec5885a8cf6517ca"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5Bg9SU",
+          "commit": {
+            "abbreviatedOid": "da86dfe"
+          },
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-07T13:17:33Z",
+          "updatedAt": "2022-09-07T13:17:33Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5Bh6id",
+          "commit": {
+            "abbreviatedOid": "da86dfe"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-09-07T15:35:56Z",
+          "updatedAt": "2022-09-07T15:55:41Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n: an entity that makes Claims about Artifacts in the supply chain. The Issuer may be the owner or author of the Artifact, or an independent third party such as a reviewer or endorser.\r\n```",
+              "createdAt": "2022-09-07T15:35:56Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nIn COSE, Feed is a dedicated header attribute in the protected header of the Envelope.\r\n```",
+              "createdAt": "2022-09-07T15:37:26Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nRegistry:\r\n```",
+              "createdAt": "2022-09-07T15:38:24Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\n: a verifiable append-only data structure that stores Claims in a Transparency Service. SCITT supports multiple Registry and Receipt formats to accommodate different Transparency Service implementations, such as historical Merkle Trees and sparse Merkle Trees. Registry is a synonym to append-only log or ledger.\r\n```",
+              "createdAt": "2022-09-07T15:39:31Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "```suggestion\r\nTransparency Service:\r\n```",
+              "createdAt": "2022-09-07T15:39:48Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\n: an entity that maintains and extends the Registry, and endorses its state. A Transparency Service is often referred to by its synonym Notary. A Transparency Service can be a complex distributed system, and SCITT requires the TS to provide many security guarantees about its Registry . The identity of a TS is captured by a public key that must be known by Verifiers in order to validate Receipts.\r\n```",
+              "createdAt": "2022-09-07T15:42:10Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            },
+            {
+              "originalPosition": 79,
+              "body": "```suggestion\r\n                \\           /          |  (decentralized) |\r\n```",
+              "createdAt": "2022-09-07T15:54:36Z",
+              "updatedAt": "2022-09-07T15:55:41Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOG2uWFs4-gled",
+      "title": "Threatmodel",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/20",
+      "state": "MERGED",
+      "author": "fournet",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "as discussed on [SCITT] SCITT threat model.\r\nI still need to discuss with Yogesh how to integrate some of his comments. ",
+      "createdAt": "2022-09-07T12:58:12Z",
+      "updatedAt": "2022-09-07T16:34:53Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "8bf22f71f19106da13f6da6fec5885a8cf6517ca",
+      "headRepository": "fournet/draft-birkholz-scitt-architecture",
+      "headRefName": "threatmodel",
+      "headRefOid": "dfcb8c3ae2171ecd0d4c19bc8f978b793453728f",
+      "closedAt": "2022-09-07T16:34:53Z",
+      "mergedAt": "2022-09-07T16:34:53Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "f9ed57fc900a0b58c82dc95fc7b63ffc9235578e"
+      },
+      "comments": [
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@fournet : Thank you for this. I think, we should start Threat Model as a separate document to begin with. The reason been, I expect Supply Chain Security been a complex subject the number of threats and mitigation strategies will be a long document.\r\n\r\nI would prefer a pointer to the document from the master Architecture document, then!\r\n\r\nOnce the document is in final shape post Community review, at that time we can make a final call, should we merge it to Main Arch. Doc or leave it separate. ",
+          "createdAt": "2022-09-07T14:17:57Z",
+          "updatedAt": "2022-09-07T14:18:16Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "> @fournet : Thank you for this. I think, we should start Threat Model as a separate document to begin with. The reason been, I expect Supply Chain Security been a complex subject the number of threats and mitigation strategies will be a long document.\r\n> \r\n> I would prefer a pointer to the document from the master Architecture document, then!\r\n> \r\n> Once the document is in final shape post Community review, at that time we can make a final call, should we merge it to Main Arch. Doc or leave it separate.\r\n\r\nConsidering the scale of the addition and the fact that stand-alone terminology or threat models are a bit frowned upon, I think we should merge this PR for now. If there is a need for a separate threat model I-D we can arrive at that conclusion in the WG and with AD and chair guidance.\r\n\r\nKeeping the number of I-Ds the same during chartering is a pro and not a con, I think.",
+          "createdAt": "2022-09-07T16:07:04Z",
+          "updatedAt": "2022-09-07T16:07:04Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5Bg8pc",
+          "commit": {
+            "abbreviatedOid": "dccf323"
+          },
+          "author": "ad-l",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-07T13:15:56Z",
+          "updatedAt": "2022-09-07T13:15:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5BiIsD",
+          "commit": {
+            "abbreviatedOid": "dccf323"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-09-07T16:13:59Z",
+          "updatedAt": "2022-09-07T16:19:22Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "```suggestion\r\n: an entity that makes Claims about Artifacts in the supply chain. The Issuer may be the owner or author of the Artifact, or an independent third party such as a reviewer or an endorser.\r\n```",
+              "createdAt": "2022-09-07T16:13:59Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 35,
+              "body": "```suggestion\r\nRegistry:\r\n```",
+              "createdAt": "2022-09-07T16:14:24Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 38,
+              "body": "```suggestion\r\n: the verifiable append-only data structure that stores Claims in a Transparency Service often referred to by the synonym log or ledger. SCITT supports multiple Registry and Receipt formats to accommodate different Transparency Service implementations, such as historical Merkle Trees and sparse Merkle Trees.\r\n```",
+              "createdAt": "2022-09-07T16:15:30Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 41,
+              "body": "```suggestion\r\nTransparency Service:\r\n```",
+              "createdAt": "2022-09-07T16:15:45Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\n: an entity that maintains and extends the Registry and endorses its state often referred to its synonym Notary. A Transparency Service can be a complex distributed system, and SCITT requires the TS to provide many security guarantees about its Registry . The identity of a TS is captured by a public key that must be known by Verifiers in order to validate Receipts.\r\n```",
+              "createdAt": "2022-09-07T16:16:50Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 63,
+              "body": "```suggestion\r\nVerifier:\r\n```",
+              "createdAt": "2022-09-07T16:17:25Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\r\n: an entity that consumes Transparent Claims (a specialization of Claim Consumer), verifying their proofs and inspecting their Statements, either before using their Artifacts, or later to audit their provenance on the supply chain.\r\n```",
+              "createdAt": "2022-09-07T16:18:13Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 70,
+              "body": "```suggestion\r\n: an entity that checks the correctness and consistency of all Claim registered by a TS (a specialization of Claim Consumer).\r\n```",
+              "createdAt": "2022-09-07T16:18:43Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            },
+            {
+              "originalPosition": 79,
+              "body": "```suggestion\r\n                \\           /          | (decentralized)  |\r\n```",
+              "createdAt": "2022-09-07T16:19:01Z",
+              "updatedAt": "2022-09-07T16:19:22Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOG2uWFs4-h4Hn",
+      "title": "Refreshing our placeholder for TS Federation",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/21",
+      "state": "OPEN",
+      "author": "fournet",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Cleaning up the Federation section, still TBD. ",
+      "createdAt": "2022-09-07T17:59:48Z",
+      "updatedAt": "2022-09-07T17:59:49Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
+      "headRepository": "fournet/draft-birkholz-scitt-architecture",
+      "headRefName": "federation-tdb",
+      "headRefOid": "56edc1e56c63802ac19c4dc516e00d6cb54d82a5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
