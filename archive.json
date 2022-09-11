@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-09-08T00:44:26.194751+00:00",
+  "timestamp": "2022-09-11T00:44:43.919842+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 22,
+      "id": "I_kwDOG2uWFs5RlHAj",
+      "title": "Update architecture to make it compile with aasvg.",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/22",
+      "state": "OPEN",
+      "author": "eckelmeckel",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "At the moment the architecture diagram looks a bit unclear. Adapt to and make it compile (and look nice) with `aasvg` would be a good enhancement.",
+      "createdAt": "2022-09-10T17:23:21Z",
+      "updatedAt": "2022-09-10T17:23:21Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -1689,6 +1706,32 @@
       "headRepository": "fournet/draft-birkholz-scitt-architecture",
       "headRefName": "federation-tdb",
       "headRefOid": "56edc1e56c63802ac19c4dc516e00d6cb54d82a5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOG2uWFs4-uL0A",
+      "title": "Updated architecture diagram to make it compile with aasvg.",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/23",
+      "state": "OPEN",
+      "author": "eckelmeckel",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #22.\r\nSigned-off-by: Michael Eckel <michael.eckel@sit.fraunhofer.de>",
+      "createdAt": "2022-09-10T17:24:34Z",
+      "updatedAt": "2022-09-10T17:24:35Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
+      "headRepository": "eckelmeckel/draft-birkholz-scitt-architecture",
+      "headRefName": "fix-diagram-for-aasvg",
+      "headRefOid": "12ea02bdc54b775e1d790a05bae64e613561ae0b",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
