@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-09-11T00:44:43.919842+00:00",
+  "timestamp": "2022-09-27T00:53:41.741693+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -63,6 +63,22 @@
       "body": "At the moment the architecture diagram looks a bit unclear. Adapt to and make it compile (and look nice) with `aasvg` would be a good enhancement.",
       "createdAt": "2022-09-10T17:23:21Z",
       "updatedAt": "2022-09-10T17:23:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 24,
+      "id": "I_kwDOG2uWFs5SoZcx",
+      "title": "Language mapping and terms.",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/24",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "On the call reviewing: [IETF RATs Overview](https://1drv.ms/p/s!Aqj-Bj9PNivcn5kVtfsMUnMGtLTtyg?e=9FDPFh)\r\n\r\n![Screen Shot 2022-09-26 at 10 51 47 AM](https://user-images.githubusercontent.com/8295856/192323088-b079a660-2b9f-4886-879c-b80a4bd2d9aa.png)\r\n\r\nOrie said:\r\n\r\n> In W3C VCs \u201cIssuers\" produce both \u201cattestations (claims in their words) and evidence (evidence in their words).\r\n\r\nOrie said:\r\n\r\n> I think a \u201cSCITT Notary\" is a \"RATs Verifier\u201d\r\n\r\nMonty said:\r\n\r\n> I would think SCITT defining the distribution of Reference Values (RV) in the RATS model. The Notary \"certifies\" that the RV is valid. Verifiers take as input (as shown on slide 6) the RVs from SCITT.\r\n\r\n\r\n\r\nHenk said:\r\n\r\n> In \"RATS round 1\", the registry (replicated nodes) take on the role of Attester, I think\r\n> In \"RATS round 2\", the issuers take on the role of Attester, I think",
+      "createdAt": "2022-09-26T15:53:10Z",
+      "updatedAt": "2022-09-26T15:54:21Z",
       "closedAt": null,
       "comments": []
     }
