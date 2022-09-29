@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-09-27T00:53:41.741693+00:00",
+  "timestamp": "2022-09-29T00:59:48.980391+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -997,25 +997,47 @@
       "id": "PR_kwDOG2uWFs46gK8X",
       "title": "ascii art to SVG in HTML mode",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/14",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "thomas-fossati",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Needs [aasvg](https://github.com/martinthomson/aasvg#usage)",
       "createdAt": "2022-06-28T14:44:51Z",
-      "updatedAt": "2022-07-19T15:22:21Z",
+      "updatedAt": "2022-09-28T09:50:46Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "202c61040810b6a58af7b0c1df7c663a97ccdc6d",
       "headRepository": "thomas-fossati/draft-birkholz-scitt-architecture",
       "headRefName": "main",
       "headRefOid": "91b5a93aa6a58165031d4762ab233beb3423a97a",
-      "closedAt": null,
+      "closedAt": "2022-09-28T09:50:45Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "@thomas-fossati: is this PR superseded by #23? Could you check?",
+          "createdAt": "2022-09-28T08:41:55Z",
+          "updatedAt": "2022-09-28T08:41:55Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "NONE",
+          "body": "> @thomas-fossati: is this PR superseded by #23? Could you check?\r\n\r\nLooks like, I see some awesome stuff there!",
+          "createdAt": "2022-09-28T09:50:03Z",
+          "updatedAt": "2022-09-28T09:50:03Z"
+        },
+        {
+          "author": "thomas-fossati",
+          "authorAssociation": "NONE",
+          "body": "Superseded by #23 ",
+          "createdAt": "2022-09-28T09:50:45Z",
+          "updatedAt": "2022-09-28T09:50:45Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOG2uWFs4-NKCR",
@@ -1057,21 +1079,21 @@
       "id": "PR_kwDOG2uWFs46hSRN",
       "title": "Move away from transparency and towards verifiability as a property",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/15",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "chris-wood",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "As discussed someone indirectly on the list, it might make sense to accommodate different types of transparency services, in particular those that don't require running and operating a publicly-verifiable ledger. To that end, this change moves away from _transparency_ as a requirement for SCITT and focuses on _verifiability_, allowing for SCITT instances to implement verifiability _with_ transparency (as in CT) if desired, but also allowing for simpler deployments (like those based on a timestamping service) where applicable.",
       "createdAt": "2022-06-28T19:40:55Z",
-      "updatedAt": "2022-07-19T15:21:42Z",
+      "updatedAt": "2022-09-28T16:40:34Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "202c61040810b6a58af7b0c1df7c663a97ccdc6d",
       "headRepository": "chris-wood/draft-birkholz-scitt-architecture",
       "headRefName": "caw/transparency-to-verifiability",
       "headRefOid": "6d3d1bd0c0f2a926d67e60829f6579e9bc2cd87b",
-      "closedAt": null,
+      "closedAt": "2022-09-28T16:40:33Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -1082,6 +1104,27 @@
           "body": "I wonder if we can get a clearer change request, what actions need to be performed to obtain approval.\r\n\r\nperhaps we can open issues and merge as is?",
           "createdAt": "2022-07-19T15:21:42Z",
           "updatedAt": "2022-07-19T15:21:42Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "@OR13 , I am under the assumption that making the ledger optional would cut away a significant core concept. Not sure how to accommodate Chris' ask. @chris-wood, could you reply to @ad-l feedback, so we can resolve the discussion?",
+          "createdAt": "2022-09-28T08:40:12Z",
+          "updatedAt": "2022-09-28T08:40:12Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "> it might make sense to accommodate different types of transparency services, in particular those that don't require running and operating a publicly-verifiable ledger.\r\n\r\nMy understanding is that the architecture has already incorporated this feedback.\r\n\r\nIn my latest tests I showed how to do this end to end with a private ledger.\r\n\r\nI agree with the motivation / framing, but the specific word changes don't achieve the objective imo.\r\n\r\nThe ledger isn't `optional` in the architecture, but it does not need to be \"public access\"... and it might now always be needed is a use case / story.\r\n\r\nThere are a lot of changes in this PR, and its got a lot of outdated comments, making it hard to review easily.\r\n\r\nAfter looking at the changes directly, I think they can be accepted as is.",
+          "createdAt": "2022-09-28T13:08:12Z",
+          "updatedAt": "2022-09-28T13:14:01Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "NONE",
+          "body": "> My understanding is that the architecture has already incorporated this feedback.\r\n\r\nIndeed -- I think @ad-l already incorporated a better version of this change into the architecture document (though I've not read the latest version). This can be closed.",
+          "createdAt": "2022-09-28T16:40:33Z",
+          "updatedAt": "2022-09-28T16:40:33Z"
         }
       ],
       "reviews": [
@@ -1131,7 +1174,7 @@
             "abbreviatedOid": "494a7f8"
           },
           "author": "joshuagl",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2022-07-01T16:17:25Z",
@@ -1195,6 +1238,46 @@
           "createdAt": "2022-07-19T15:17:16Z",
           "updatedAt": "2022-07-19T15:17:16Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5C85lG",
+          "commit": {
+            "abbreviatedOid": "494a7f8"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-28T08:37:34Z",
+          "updatedAt": "2022-09-28T08:37:34Z",
+          "comments": [
+            {
+              "originalPosition": 85,
+              "body": "I agree with @ad-l\r\nDo others share Chris' concern?",
+              "createdAt": "2022-09-28T08:37:34Z",
+              "updatedAt": "2022-09-28T08:37:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5C-dI1",
+          "commit": {
+            "abbreviatedOid": "6d3d1bd"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-09-28T13:14:35Z",
+          "updatedAt": "2022-09-28T13:14:36Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nThe first guarantee is achieved by requiring issuers to sign their statements and associated metadata using a distributed public key infrastructure. The second guarantee is achieved by appending the signed statement to a data structure that logically defines an immutable, append-only, transparent registry for the Registration Service (RS). The last guarantee is achieved by using a verifiable data structure to implement the registry (such as a Merkle Tree), and by requiring a Registration Service that operates the registry to endorse its state at the time of registration.\r\n```",
+              "createdAt": "2022-09-28T13:14:35Z",
+              "updatedAt": "2022-09-28T13:14:36Z"
+            }
+          ]
         }
       ]
     },
@@ -1715,7 +1798,7 @@
       "labels": [],
       "body": "Cleaning up the Federation section, still TBD. ",
       "createdAt": "2022-09-07T17:59:48Z",
-      "updatedAt": "2022-09-07T17:59:49Z",
+      "updatedAt": "2022-09-28T08:31:32Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
@@ -1726,8 +1809,30 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "Also:\r\n> *** Run 'make fix-lint' to automatically fix some errors",
+          "createdAt": "2022-09-28T08:31:32Z",
+          "updatedAt": "2022-09-28T08:31:32Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5C81Dd",
+          "commit": {
+            "abbreviatedOid": "56edc1e"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "lgtm, any objections? still in early stage",
+          "createdAt": "2022-09-28T08:26:02Z",
+          "updatedAt": "2022-09-28T08:26:02Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 23,
