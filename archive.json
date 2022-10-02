@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-09-29T00:59:48.980391+00:00",
+  "timestamp": "2022-10-02T00:56:47.107195+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -81,6 +81,62 @@
       "updatedAt": "2022-09-26T15:54:21Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOG2uWFs5S6fd6",
+      "title": "Registry Access Scenarios",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/25",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "### Case 0 \r\n\r\n- Public Read\r\n- Private Write\r\n\r\n### Case 1\r\n\r\n- Private Read\r\n- Private Write\r\n\r\n\r\nWhen holding an endorsement, one might be be able to verify directly in a public read, or rely on an auditor in the case of a private read scenario.\r\n",
+      "createdAt": "2022-09-29T15:26:51Z",
+      "updatedAt": "2022-09-29T15:26:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOG2uWFs5S6gY5",
+      "title": "Considering the impact of claim semantics on policy layer",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/26",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "When specific and detailed claims are provided an advanced policy might be applied.\r\n\r\nIf only shallow / simple claims are provided, there is not much of an opportunity to apply advanced policies.",
+      "createdAt": "2022-09-29T15:29:25Z",
+      "updatedAt": "2022-09-29T15:29:25Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOG2uWFs5S6h1o",
+      "title": "Add a sequence diagram",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/27",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "##  Compound User Story / Sequence Diagram\r\n\r\nAs a consumer, I want to understand if I should trust an artifact\r\nAs a producer, I want to be assured that the integrity of my artifacts has been reviewed by a trusted 3rd party.\r\n\r\n```mermaid\r\nsequenceDiagram\r\n    participant Issuer\r\n    participant Notary\r\n    Note left of Issuer: I take responsibility for the artifacts I produce\r\n    Issuer ->> Notary: These are the policies I am committed to meeting\r\n    Issuer ->> Notary: I stand by my claims about my artifact\r\n    loop Claims Check\r\n        Notary ->> Notary: Review relevant claims and policies\r\n    end\r\n    Notary ->> Issuer: Here is my endorsement and receipt\r\n    Consumer->>Notary: Is this artifact safe to use?\r\n    loop Endorsement Check\r\n        Notary->>Notary: Review relevant claims and endorsements\r\n    end\r\n     Notary ->> Consumer: You can trust this artifact, the endorsement is still valid\r\n     Note right of Consumer: I have confidence the artifacts I consume\r\n```\r\n",
+      "createdAt": "2022-09-29T15:33:27Z",
+      "updatedAt": "2022-09-29T16:22:59Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "pdxjohnny",
+          "authorAssociation": "NONE",
+          "body": "- Mermaid docs for other unfamiliar contributors:\r\n  - https://mermaid-js.github.io/mermaid/#/sequenceDiagram\r\n  - https://mermaid-js.github.io/mermaid-live-editor/",
+          "createdAt": "2022-09-29T16:22:44Z",
+          "updatedAt": "2022-09-29T16:22:59Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1846,7 +1902,7 @@
       "labels": [],
       "body": "Fixes #22.\r\nSigned-off-by: Michael Eckel <michael.eckel@sit.fraunhofer.de>",
       "createdAt": "2022-09-10T17:24:34Z",
-      "updatedAt": "2022-09-10T17:24:35Z",
+      "updatedAt": "2022-09-29T16:01:13Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
@@ -1857,8 +1913,30 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "Much improved, I suggest we merge.",
+          "createdAt": "2022-09-29T16:01:13Z",
+          "updatedAt": "2022-09-29T16:01:13Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5DFvn0",
+          "commit": {
+            "abbreviatedOid": "12ea02b"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-09-29T16:00:58Z",
+          "updatedAt": "2022-09-29T16:00:58Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
