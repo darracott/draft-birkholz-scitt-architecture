@@ -1224,7 +1224,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-claim-issuance" class="internal xref">Claim Issuance</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-standard-registration-polic" class="internal xref">Standard registration policies</a></p>
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-standard-registration-polic" class="internal xref">Standard Registration Policies</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
                 <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-registering-signed-claims" class="internal xref">Registering Signed Claims</a></p>
@@ -1263,10 +1263,10 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-threat-model" class="internal xref">Threat Model</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.1">
-                    <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="auto internal xref">10.1.1</a>.  <a href="#name-claim-authentication-and-tr" class="internal xref">Claim authentication and transparency.</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="auto internal xref">10.1.1</a>.  <a href="#name-claim-authentication-and-tr" class="internal xref">Claim Authentication and Transparency</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.2">
-                    <p id="section-toc.1-1.10.2.1.2.2.1"><a href="#section-10.1.2" class="auto internal xref">10.1.2</a>.  <a href="#name-confidentiality-and-privacy" class="internal xref">Confidentiality and privacy.</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.2.1"><a href="#section-10.1.2" class="auto internal xref">10.1.2</a>.  <a href="#name-confidentiality-and-privacy" class="internal xref">Confidentiality and Privacy</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.3">
                     <p id="section-toc.1-1.10.2.1.2.3.1"><a href="#section-10.1.3" class="auto internal xref">10.1.3</a>.  <a href="#name-cryptographic-assumptions" class="internal xref">Cryptographic Assumptions</a></p>
@@ -1779,7 +1779,7 @@ Unprotected_Header = {
 <div id="sec-standard-registration-policies">
 <section id="section-6.3">
         <h3 id="name-standard-registration-polic">
-<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-standard-registration-polic" class="section-name selfRef">Standard registration policies</a>
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-standard-registration-polic" class="section-name selfRef">Standard Registration Policies</a>
         </h3>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="section-6.3-1.1">
@@ -1868,7 +1868,7 @@ For now, we inline some significant policies to illustrate the most common use c
 <a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-validation-of-transparent-c" class="section-name selfRef">Validation of Transparent Claims</a>
         </h3>
 <p id="section-6.5-1">This section provides additional implementation considerations, the high-level validation algorithm is described in <a href="#validation" class="auto internal xref">Section 5.3</a>, with the Registry-specific details of checking Receipts are covered in <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span>.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
-<p id="section-6.5-2">Before checking a Claim, the Verifier must be configured with one or more identities of trusted Transparency Services. If more than one service is configured, the Verifier <span class="bcp14">MUST</span> return which service the Claim is registered on.<a href="#section-6.5-2" class="pilcrow">¶</a></p>
+<p id="section-6.5-2">Before checking a Claim, the Verifier must be configured with one or more identities of trusted SCITT instances. If more than one service is configured, the Verifier <span class="bcp14">MUST</span> return which service the Claim is registered on.<a href="#section-6.5-2" class="pilcrow">¶</a></p>
 <p id="section-6.5-3">In some scenarios, the Verifier already expects a specific Issuer and Feed for the Claim, while in other cases they are not known in advance and can be an output of validation. Verifiers <span class="bcp14">SHOULD</span> offer a configuration to decide if the Issuer's signature should be locally verified (which may require a DID resolution, and may fail if the manifest is not available or if the key is revoked), or if it should trust the validation done by the SCITT instance during Registration.<a href="#section-6.5-3" class="pilcrow">¶</a></p>
 <p id="section-6.5-4">Some Verifiers <span class="bcp14">MAY</span> decide to locally re-apply some or all of the Registration policies if they have limited trust in the SCITT instance. In addition, Verifiers <span class="bcp14">MAY</span> apply arbitrary validation policies after the signature and Receipt have been checked. Such policies may use as input all information in the Envelope, the Receipt, and the payload, as well as any local state.<a href="#section-6.5-4" class="pilcrow">¶</a></p>
 <p id="section-6.5-5">Verifiers <span class="bcp14">SHOULD</span> offer options to store or share Receipts in case they are needed to audit the SCITT instance in case of a dispute.<a href="#section-6.5-5" class="pilcrow">¶</a></p>
@@ -1885,7 +1885,7 @@ For now, we inline some significant policies to illustrate the most common use c
 <p id="section-7-2">Multiple SCITT instances, governed and operated by different organizations.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">For example,
 - a small, simple SCITT instance may keep track specifically of the software used for operating SCITT services.
-- an air-gapped data center may operate its own SCITT Registry to retain full control and auditing of its software supplies.<a href="#section-7-3" class="pilcrow">¶</a></p>
+- an air-gapped data center may operate its own SCITT instance to retain full control and auditing of its software supplies.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">How?
 - Policy-based. Within an organization, local Verifiers contact an authoritative SCITT that records the latest policies associated with classes of Artifacts; these policies indicate which Issuers and Registries are trusted for verifying signed Transparent Claims for these Artifacts.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -2029,8 +2029,8 @@ GET &lt;Base URL&gt;/entries/&lt;Transaction ID&gt;/receipt
       <h2 id="name-security-considerations">
 <a href="#section-10" class="section-number selfRef">10. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-10-1">On its own, verifying a Transparent Claim does not guarantee that its Envelope or contents are trustworthy---just that they have been signed by the apparent Issuer and counter-signed by the SCITT instance. If the Verifier trusts the Issuer, it can infer that the Claim was issued with this Envelope and contents, which may be interpreted as the Issuer saying the Artifact is fit for its intended purpose. If the Verifier trusts the SCITT instance, it can independently infer that the Claim passed the SCITT Registration policy and that has been persisted in the Registry. Unless advertised in the SCITT instance Registration policy, the Verifier should not assume that the ordering of Transparent Claims in the Registry matches the ordering of their issuance.<a href="#section-10-1" class="pilcrow">¶</a></p>
-<p id="section-10-2">Similarly, the fact that an Issuer can be held accountable for its Transparent Claims does not on its own provide any mitigation or remediation mechanism in case one of these Claims turned out to be misleading or malicious---just that signed evidence will be available to support them.<a href="#section-10-2" class="pilcrow">¶</a></p>
+<p id="section-10-1">On its own, verifying a Transparent Claim does not guarantee that its Envelope or contents are trustworthy, just that they have been signed by the apparent Issuer and counter-signed by the SCITT instance. If the Verifier trusts the Issuer, it can infer that the Claim was issued with this Envelope and contents, which may be interpreted as the Issuer saying the Artifact is fit for its intended purpose. If the Verifier trusts the SCITT instance, it can independently infer that the Claim passed the SCITT Registration policy and that has been persisted in the Registry. Unless advertised in the SCITT instance Registration policy, the Verifier should not assume that the ordering of Transparent Claims in the Registry matches the ordering of their issuance.<a href="#section-10-1" class="pilcrow">¶</a></p>
+<p id="section-10-2">Similarly, the fact that an Issuer can be held accountable for its Transparent Claims does not on its own provide any mitigation or remediation mechanism in case one of these Claims turned out to be misleading or malicious, just that signed evidence will be available to support them.<a href="#section-10-2" class="pilcrow">¶</a></p>
 <p id="section-10-3">Issuers <span class="bcp14">SHOULD</span> ensure that the Statements in their Claims are correct and unambiguous, for example by avoiding ill-defined or ambiguous formats that may cause Verifiers to interpret the Claim as valid for some other purpose.<a href="#section-10-3" class="pilcrow">¶</a></p>
 <p id="section-10-4">Issuers and Transparency Services <span class="bcp14">SHOULD</span> carefully protect their private signing keys
 and avoid these keys for any purpose not described in this architecture. In case key re-use is unavoidable, they <span class="bcp14">MUST NOT</span> sign any other message that may be verified as an Envelope.<a href="#section-10-4" class="pilcrow">¶</a></p>
@@ -2044,21 +2044,21 @@ and avoid these keys for any purpose not described in this architecture. In case
 <div id="sec-claim-authentication-and-transparency">
 <section id="section-10.1.1">
           <h4 id="name-claim-authentication-and-tr">
-<a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-claim-authentication-and-tr" class="section-name selfRef">Claim authentication and transparency.</a>
+<a href="#section-10.1.1" class="section-number selfRef">10.1.1. </a><a href="#name-claim-authentication-and-tr" class="section-name selfRef">Claim Authentication and Transparency</a>
           </h4>
 <p id="section-10.1.1-1">SCITT primarily supports evidence of Claim integrity, both from the Issuer (authentication) and from the SCITT instance (transparency). These guarantees are meant to hold for the long term, possibly decades.<a href="#section-10.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-2">We conservatively suppose that some issuers and some SCITT instances will be corrupt.<a href="#section-10.1.1-2" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-3">SCITT entities explicitly trust one another on the basis of their long-term identity, which maps to shorter-lived cryptographic credentials. Hence, a Verifier would usually validate a transparent signed Claim from a given Issuer, registered at a given SCITT instance (both identified in the Verifier's local authorization policy) and would not depend on any other Issuer or SCITT instance.<a href="#section-10.1.1-3" class="pilcrow">¶</a></p>
-<p id="section-10.1.1-4">We cannot stop authorized supply chain actors from making false claims (either by mistake or by corruption) but we can make them accountable by ensuring their Claims are systematically registered at a trustworthy SCITT instance.<a href="#section-10.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-10.1.1-4">We cannot stop authorized supply chain actors from making false claims (either by mistake, by corruption, or true at the time, but new information proves them false). But we can make them accountable by ensuring their Claims are systematically registered at a trustworthy SCITT instance.<a href="#section-10.1.1-4" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-5">Similarly, we aim to provide strong residual guarantees against a faulty/corrupt SCITT instance. We cannot stop a SCITT instance from registering Claims that do not meet its stated Registration Policy, or to issue Receipts that are not consistent with their append-only Registry, but we can hold it accountable and guarantee that it will be blamed by any Auditor that replays their Registry against any contested Receipt. Note that SCITT does not require trust in a single centralized SCITT instance: different actors may rely on different SCITT instance, each registering a subset of claims subject to their own policy.<a href="#section-10.1.1-5" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-6">In both cases, SCITT provides generic, universally-verifiable cryptographic evidence to individually blame the Issuer or the SCITT instance. This enables valid actors to detect and disambiguate malicious actors who make contradictory Claims to different entities (Verifiers, Auditors, Issuers). On the other hand, their liability and the resulting damage to their reputation are application specific, and out of scope for SCITT.<a href="#section-10.1.1-6" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-7">Verifiers and Auditors need not be trusted by other actors. In particular, they cannot "frame" an Issuer or a SCITT instance for claims they did not issue or register.<a href="#section-10.1.1-7" class="pilcrow">¶</a></p>
-<p id="section-10.1.1-8"><strong>Append-only log</strong><a href="#section-10.1.1-8" class="pilcrow">¶</a></p>
+<p id="section-10.1.1-8"><strong>Append-only Log</strong><a href="#section-10.1.1-8" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-9">If a SCITT instance is honest, then a transparent signed Claim with a correct Receipt of registration at a given position ensures that the signed claim passed its Registration Policy and was recorded at that position in its Registry.<a href="#section-10.1.1-9" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-10">Conversely, a corrupt SCITT instance may
-1. refuse or delay the registration of Claims;
-2. register Claims that do not pass its Registration Policy (e.g. Claims with Issuer identities and signatures that do not verify.)
-3. issue verifiable Receipts for Claims that do not match its Registry;
+1. refuse or delay the registration of Claims
+2. register Claims that do not pass its Registration Policy (e.g. Claims with Issuer identities and signatures that do not verify)
+3. issue verifiable Receipts for Claims that do not match its Registry
 4. refuse access to its Registry (e.g. to Auditors, possibly after storage loss)<a href="#section-10.1.1-10" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-11">An Auditor granted (partial) access to the Registry and to a collection of disputed Receipts will be able to replay it, detect any invalid Registration (2) or incorrect  receipt in this collection (3), and blame the SCITT instance for them. This ensures any Verifier that trust at least one such Auditor that (2,3) will be blamed to the SCITT instance.<a href="#section-10.1.1-11" class="pilcrow">¶</a></p>
 <p id="section-10.1.1-12">Due to the operational challenge of maintaining a globally consistent append-only Registry,
@@ -2075,10 +2075,10 @@ and accept the risk of being blamed for inconsistent Registration or Issuer equi
 <div id="sec-confidentiality-and-privacy">
 <section id="section-10.1.2">
           <h4 id="name-confidentiality-and-privacy">
-<a href="#section-10.1.2" class="section-number selfRef">10.1.2. </a><a href="#name-confidentiality-and-privacy" class="section-name selfRef">Confidentiality and privacy.</a>
+<a href="#section-10.1.2" class="section-number selfRef">10.1.2. </a><a href="#name-confidentiality-and-privacy" class="section-name selfRef">Confidentiality and Privacy</a>
           </h4>
 <p id="section-10.1.2-1">The network is untrusted. All contents exchanged between actors is protected using secure authenticated channels (TLS) but, as usual, this may not exclude network traffic analysis.<a href="#section-10.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-10.1.2-2"><strong>Claims and their registration</strong><a href="#section-10.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-10.1.2-2"><strong>Claims and Their Registration</strong><a href="#section-10.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-10.1.2-3">The SCITT instance is trusted with the confidentiality of the claims presented for registration. Some SCITT instances may publish every claim in their logs, to facilitate their dissemination and auditing. Others may just return receipts to the client that present claims for registration, and disclose the ledger only to auditors trusted with the confidentiality of its contents.<a href="#section-10.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-10.1.2-4">A collection of transparent Claims leaks no information about the contents of other Claims registered at the SCITT instance.<a href="#section-10.1.2-4" class="pilcrow">¶</a></p>
 <p id="section-10.1.2-5">Nonetheless, Issuers should carefully review the inclusion of private/confidential materials in their Claims; they may for instance remove any PII, or include instead opaque cryptographic commitments, such as hashes.<a href="#section-10.1.2-5" class="pilcrow">¶</a></p>
@@ -2091,7 +2091,7 @@ and accept the risk of being blamed for inconsistent Registration or Issuer equi
           <h4 id="name-cryptographic-assumptions">
 <a href="#section-10.1.3" class="section-number selfRef">10.1.3. </a><a href="#name-cryptographic-assumptions" class="section-name selfRef">Cryptographic Assumptions</a>
           </h4>
-<p id="section-10.1.3-1">We rely on standard cryptographic security for signing schemes (EUF-CMA: for a given key, given the public key and any number of signed messages, the attacker cannot forge a valid signature for any other message) and for receipts schemes (log collision-resistance: for a given commitment such as a Merkle-tree root, there is a unique log such that any valid path authenticates a claim in this log.)<a href="#section-10.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-10.1.3-1">SCITT relies on standard cryptographic security for signing schemes (EUF-CMA: for a given key, given the public key and any number of signed messages, the attacker cannot forge a valid signature for any other message) and for receipts schemes (log collision-resistance: for a given commitment such as a Merkle-tree root, there is a unique log such that any valid path authenticates a claim in this log.)<a href="#section-10.1.3-1" class="pilcrow">¶</a></p>
 <p id="section-10.1.3-2">SCITT supports cryptographic agility: the actors depend only on the subset of signing and receipt schemes they trust. This enables the gradual transition to stronger algorithms, including e.g. post-quantum signature algorithms.<a href="#section-10.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>

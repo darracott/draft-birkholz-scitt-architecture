@@ -99,7 +99,7 @@ Table of Contents
    6.  Claim Issuance, Registration, and Verification
      6.1.  Envelope and Claim Format
      6.2.  Claim Issuance
-     6.3.  Standard registration policies
+     6.3.  Standard Registration Policies
      6.4.  Registering Signed Claims
      6.5.  Validation of Transparent Claims
    7.  Federation
@@ -110,8 +110,8 @@ Table of Contents
    9.  Privacy Considerations
    10. Security Considerations
      10.1.  Threat Model
-       10.1.1.  Claim authentication and transparency.
-       10.1.2.  Confidentiality and privacy.
+       10.1.1.  Claim Authentication and Transparency
+       10.1.2.  Confidentiality and Privacy
        10.1.3.  Cryptographic Assumptions
        10.1.4.  SCITT Clients
        10.1.5.  Identity
@@ -895,7 +895,7 @@ Table of Contents
    COSE_Sign1_Tagged is outside the scope of COSE, and used to indicate
    that a signed object is a Claim).
 
-6.3.  Standard registration policies
+6.3.  Standard Registration Policies
 
       *Editor's note*
 
@@ -1003,9 +1003,9 @@ Table of Contents
    [I-D.birkholz-scitt-receipts].
 
    Before checking a Claim, the Verifier must be configured with one or
-   more identities of trusted Transparency Services.  If more than one
-   service is configured, the Verifier MUST return which service the
-   Claim is registered on.
+   more identities of trusted SCITT instances.  If more than one service
+   is configured, the Verifier MUST return which service the Claim is
+   registered on.
 
    In some scenarios, the Verifier already expects a specific Issuer and
    Feed for the Claim, while in other cases they are not known in
@@ -1036,7 +1036,7 @@ Table of Contents
 
    For example, - a small, simple SCITT instance may keep track
    specifically of the software used for operating SCITT services. - an
-   air-gapped data center may operate its own SCITT Registry to retain
+   air-gapped data center may operate its own SCITT instance to retain
    full control and auditing of its software supplies.
 
    How? - Policy-based.  Within an organization, local Verifiers contact
@@ -1150,22 +1150,22 @@ Table of Contents
 10.  Security Considerations
 
    On its own, verifying a Transparent Claim does not guarantee that its
-   Envelope or contents are trustworthy---just that they have been
-   signed by the apparent Issuer and counter-signed by the SCITT
-   instance.  If the Verifier trusts the Issuer, it can infer that the
-   Claim was issued with this Envelope and contents, which may be
-   interpreted as the Issuer saying the Artifact is fit for its intended
-   purpose.  If the Verifier trusts the SCITT instance, it can
-   independently infer that the Claim passed the SCITT Registration
-   policy and that has been persisted in the Registry.  Unless
-   advertised in the SCITT instance Registration policy, the Verifier
-   should not assume that the ordering of Transparent Claims in the
-   Registry matches the ordering of their issuance.
+   Envelope or contents are trustworthy, just that they have been signed
+   by the apparent Issuer and counter-signed by the SCITT instance.  If
+   the Verifier trusts the Issuer, it can infer that the Claim was
+   issued with this Envelope and contents, which may be interpreted as
+   the Issuer saying the Artifact is fit for its intended purpose.  If
+   the Verifier trusts the SCITT instance, it can independently infer
+   that the Claim passed the SCITT Registration policy and that has been
+   persisted in the Registry.  Unless advertised in the SCITT instance
+   Registration policy, the Verifier should not assume that the ordering
+   of Transparent Claims in the Registry matches the ordering of their
+   issuance.
 
    Similarly, the fact that an Issuer can be held accountable for its
    Transparent Claims does not on its own provide any mitigation or
    remediation mechanism in case one of these Claims turned out to be
-   misleading or malicious---just that signed evidence will be available
+   misleading or malicious, just that signed evidence will be available
    to support them.
 
    Issuers SHOULD ensure that the Statements in their Claims are correct
@@ -1188,7 +1188,7 @@ Table of Contents
    This model may need to be refined to account for specific supply
    chains and use cases.
 
-10.1.1.  Claim authentication and transparency.
+10.1.1.  Claim Authentication and Transparency
 
    SCITT primarily supports evidence of Claim integrity, both from the
    Issuer (authentication) and from the SCITT instance (transparency).
@@ -1206,9 +1206,10 @@ Table of Contents
    policy) and would not depend on any other Issuer or SCITT instance.
 
    We cannot stop authorized supply chain actors from making false
-   claims (either by mistake or by corruption) but we can make them
-   accountable by ensuring their Claims are systematically registered at
-   a trustworthy SCITT instance.
+   claims (either by mistake, by corruption, or true at the time, but
+   new information proves them false).  But we can make them accountable
+   by ensuring their Claims are systematically registered at a
+   trustworthy SCITT instance.
 
    Similarly, we aim to provide strong residual guarantees against a
    faulty/corrupt SCITT instance.  We cannot stop a SCITT instance from
@@ -1233,7 +1234,7 @@ Table of Contents
    particular, they cannot "frame" an Issuer or a SCITT instance for
    claims they did not issue or register.
 
-   *Append-only log*
+   *Append-only Log*
 
    If a SCITT instance is honest, then a transparent signed Claim with a
    correct Receipt of registration at a given position ensures that the
@@ -1241,10 +1242,10 @@ Table of Contents
    position in its Registry.
 
    Conversely, a corrupt SCITT instance may 1. refuse or delay the
-   registration of Claims; 2. register Claims that do not pass its
+   registration of Claims 2. register Claims that do not pass its
    Registration Policy (e.g.  Claims with Issuer identities and
-   signatures that do not verify.) 3. issue verifiable Receipts for
-   Claims that do not match its Registry; 4. refuse access to its
+   signatures that do not verify) 3. issue verifiable Receipts for
+   Claims that do not match its Registry 4. refuse access to its
    Registry (e.g. to Auditors, possibly after storage loss)
 
    An Auditor granted (partial) access to the Registry and to a
@@ -1277,13 +1278,13 @@ Table of Contents
    Actors should independently keep their own record of the Claims they
    issue, endorse, verify, or audit.
 
-10.1.2.  Confidentiality and privacy.
+10.1.2.  Confidentiality and Privacy
 
    The network is untrusted.  All contents exchanged between actors is
    protected using secure authenticated channels (TLS) but, as usual,
    this may not exclude network traffic analysis.
 
-   *Claims and their registration*
+   *Claims and Their Registration*
 
    The SCITT instance is trusted with the confidentiality of the claims
    presented for registration.  Some SCITT instances may publish every
@@ -1309,12 +1310,12 @@ Table of Contents
 
 10.1.3.  Cryptographic Assumptions
 
-   We rely on standard cryptographic security for signing schemes (EUF-
-   CMA: for a given key, given the public key and any number of signed
-   messages, the attacker cannot forge a valid signature for any other
-   message) and for receipts schemes (log collision-resistance: for a
-   given commitment such as a Merkle-tree root, there is a unique log
-   such that any valid path authenticates a claim in this log.)
+   SCITT relies on standard cryptographic security for signing schemes
+   (EUF-CMA: for a given key, given the public key and any number of
+   signed messages, the attacker cannot forge a valid signature for any
+   other message) and for receipts schemes (log collision-resistance:
+   for a given commitment such as a Merkle-tree root, there is a unique
+   log such that any valid path authenticates a claim in this log.)
 
    SCITT supports cryptographic agility: the actors depend only on the
    subset of signing and receipt schemes they trust.  This enables the
