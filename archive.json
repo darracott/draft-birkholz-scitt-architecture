@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-13T00:54:51.820947+00:00",
+  "timestamp": "2022-10-16T00:57:02.068007+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -102,7 +102,7 @@
       "labels": [],
       "body": "### Case 0 \r\n\r\n- Public Read\r\n- Private Write\r\n\r\n### Case 1\r\n\r\n- Private Read\r\n- Private Write\r\n\r\n\r\nWhen holding an endorsement, one might be be able to verify directly in a public read, or rely on an auditor in the case of a private read scenario.\r\n",
       "createdAt": "2022-09-29T15:26:51Z",
-      "updatedAt": "2022-10-12T21:36:40Z",
+      "updatedAt": "2022-10-13T12:58:59Z",
       "closedAt": null,
       "comments": [
         {
@@ -111,6 +111,13 @@
           "body": "I'm struggling a bit with what it means to have anyone be able to write. While it sounds great, and makes a great demo, it leads to so many security, DOS issues, I question the value. \r\nStandard RBAC write/query/read makes sense. \r\n",
           "createdAt": "2022-10-12T21:36:39Z",
           "updatedAt": "2022-10-12T21:36:39Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "> I'm struggling a bit with what it means to have anyone be able to write.\r\n\r\nboth scenarios have \"private write\", this implies some form of AuthZ.",
+          "createdAt": "2022-10-13T12:58:59Z",
+          "updatedAt": "2022-10-13T12:58:59Z"
         }
       ]
     },
