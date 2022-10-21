@@ -450,30 +450,43 @@ Table of Contents
 
 5.  Architecture Overview
 
-                Artifact
-                   |
-                   v                      +------------------+
-    Issuer    -> Statement    Envelope    | DID Key Manifest |
-                   \           /          | (decentralized)  |
-                    \         /           +------------------+
-                     \ ______/               |     |
-                         |                   |     |
-                         v        signature  |     |
-                       Claim  <--------------/     |
-                         |                         |
-                         |  Claim      +---------+ |
-                         |------------>| Trans.  | |
-   Transparency ->       +<------------| Registry| /
-   Service               |  Receipt    +--------+ X
-                         v                       / \
-                    Transparent                 /   \
-                       Claim                   /    |
-                         |\                   /     |
-                         | \                 /      |
-                         |  \               /       |
-   Verifier    ->        |    Verify Claim          |
-                         |                          |
-   Auditor    ->       Collect Receipts     Replay Registry
+                       .----------.
+                      |  Artifact  |
+                       '----+-----'
+                            v
+                       .----+----.  .----------.
+   Issuer       -->   | Statement ||  Envelope  |
+                       '----+----'  '-----+----'
+                            |             |       +------------------+
+                             '----. .----'        | DID Key Manifest |
+                                   |              | (decentralized)  |
+                                   v              +---+----------+---+
+                                .--+--.   Sign Claim  |          |
+                               | Claim +<------------'           |
+                                '--+--'                          |
+                                   |            +--------------+ |
+                                .-' '---------->+ Transparency | |
+                               |   .-------.    |              | |
+   Transparency -->            |  | Receipt |<--+   Registry   | |
+        Service                |   '---+---'    +-------+------+ |
+                                '-. .-'                 |        |
+                                   |                    |        |
+                                   v                    |        |
+                             .-+-------+-.              |        |
+                            | Transparent |             |        |
+                            |    Claim    |             |        |
+                             '-----+-----'              |        |
+                                   |                    |        |
+                                   |'------.     .------)-------'
+                                   |        |   |       |
+                                   |        v   v       |
+                                   |   .----+---+-----. |
+   Verifier      -->               |  / Verify Claim /  |
+                                   | '--------------'   |
+                                   v                    v
+                          .--------+---------.  .-------+---------.
+   Auditor       -->     / Collect Receipts /  / Replay Registry /
+                        '------------------'  '-----------------'
 
    The SCITT architecture consists of a very loose federation of
    Transparency Services, and a set of common formats and protocols for
