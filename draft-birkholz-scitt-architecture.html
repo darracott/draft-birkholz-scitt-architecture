@@ -13,11 +13,11 @@
        Traceability of physical and digital artifacts in supply chains is a long-standing, but increasingly serious security concern. The rise in popularity of verifiable data structures as a mechanism to make actors more accountable for breaching their compliance promises has found some successful applications to specific use cases (such as the supply chain for digital certificates), but lacks a generic and scalable architecture that can address a wider range of use cases. 
        This memo defines a generic and scalable architecture to enable transparency across any supply chain with minimum adoption barriers for producers (who can register their claims on any Transparency Service (TS), with the guarantee that all consumers will be able to verify them) and enough flexibility to allow different implementations of Transparency Services with various auditing and compliance requirements. 
     " name="description">
-<meta content="xml2rfc 3.14.2" name="generator">
+<meta content="xml2rfc 3.15.1" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-birkholz-scitt-architecture-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.14.2
+  xml2rfc 3.15.1
     Python 3.10.5
     appdirs 1.4.4
     ConfigArgParse 1.5.3
@@ -1034,16 +1034,16 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </style>
 
 </head>
-<body>
+<body class="xml2rfc">
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SCITT Architecture</td>
-<td class="right">September 2022</td>
+<td class="right">October 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Birkholz, et al.</td>
-<td class="center">Expires 11 March 2023</td>
+<td class="center">Expires 24 April 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1056,12 +1056,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-birkholz-scitt-architecture-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-09-07" class="published">7 September 2022</time>
+<time datetime="2022-10-21" class="published">21 October 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-03-11">11 March 2023</time></dd>
+<dd class="expires"><time datetime="2023-04-24">24 April 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1121,7 +1121,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 March 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 24 April 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1151,155 +1151,155 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-requirements-notation" class="xref">Requirements Notation</a></p>
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-requirements-notation" class="internal xref">Requirements Notation</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-use-cases" class="xref">Use Cases</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-use-cases" class="internal xref">Use Cases</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-software-bill-of-materials-" class="xref">Software Bill of Materials (SBOM)</a></p>
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-software-bill-of-materials-" class="internal xref">Software Bill of Materials (SBOM)</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-confidential-computing" class="xref">Confidential Computing</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-confidential-computing" class="internal xref">Confidential Computing</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-cold-chains-for-seafood" class="xref">Cold Chains for Seafood</a></p>
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-cold-chains-for-seafood" class="internal xref">Cold Chains for Seafood</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-terminology" class="xref">Terminology</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-terminology" class="internal xref">Terminology</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-definition-of-transparency" class="xref">Definition of Transparency</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-definition-of-transparency" class="internal xref">Definition of Transparency</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-architecture-overview" class="xref">Architecture Overview</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-architecture-overview" class="internal xref">Architecture Overview</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-claim-issuance-and-registra" class="xref">Claim Issuance and Registration</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-claim-issuance-and-registra" class="internal xref">Claim Issuance and Registration</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
-                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="xref">5.1.1</a>.  <a href="#name-issuer-identity" class="xref">Issuer Identity</a></p>
+                    <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-issuer-identity" class="internal xref">Issuer Identity</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.2">
-                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="xref">5.1.2</a>.  <a href="#name-naming-artifacts" class="xref">Naming Artifacts</a></p>
+                    <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="auto internal xref">5.1.2</a>.  <a href="#name-naming-artifacts" class="internal xref">Naming Artifacts</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.3">
-                    <p id="section-toc.1-1.5.2.1.2.3.1"><a href="#section-5.1.3" class="xref">5.1.3</a>.  <a href="#name-claim-metadata" class="xref">Claim Metadata</a></p>
+                    <p id="section-toc.1-1.5.2.1.2.3.1"><a href="#section-5.1.3" class="auto internal xref">5.1.3</a>.  <a href="#name-claim-metadata" class="internal xref">Claim Metadata</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-transparency-service-ts" class="xref">Transparency Service (TS)</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-transparency-service-ts" class="internal xref">Transparency Service (TS)</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
-                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-service-identity-remote-att" class="xref">Service Identity, Remote Attestation, and Keying</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-service-identity-remote-att" class="internal xref">Service Identity, Remote Attestation, and Keying</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-registration-policies" class="xref">Registration Policies</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-registration-policies" class="internal xref">Registration Policies</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
-                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="xref">5.2.3</a>.  <a href="#name-registry-security-requireme" class="xref">Registry Security Requirements</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="auto internal xref">5.2.3</a>.  <a href="#name-registry-security-requireme" class="internal xref">Registry Security Requirements</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
-                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-verifying-transparent-claim" class="xref">Verifying Transparent Claims</a></p>
+                <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-verifying-transparent-claim" class="internal xref">Verifying Transparent Claims</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-claim-issuance-registration" class="xref">Claim Issuance, Registration, and Verification</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-claim-issuance-registration" class="internal xref">Claim Issuance, Registration, and Verification</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-envelope-and-claim-format" class="xref">Envelope and Claim Format</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-envelope-and-claim-format" class="internal xref">Envelope and Claim Format</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-claim-issuance" class="xref">Claim Issuance</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-claim-issuance" class="internal xref">Claim Issuance</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-standard-registration-polic" class="xref">Standard registration policies</a></p>
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-standard-registration-polic" class="internal xref">Standard registration policies</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-registering-signed-claims" class="xref">Registering Signed Claims</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-registering-signed-claims" class="internal xref">Registering Signed Claims</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.5">
-                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="xref">6.5</a>.  <a href="#name-validation-of-transparent-c" class="xref">Validation of Transparent Claims</a></p>
+                <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="auto internal xref">6.5</a>.  <a href="#name-validation-of-transparent-c" class="internal xref">Validation of Transparent Claims</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-federation" class="xref">Federation</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-federation" class="internal xref">Federation</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-transparency-service-api" class="xref">Transparency Service API</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-transparency-service-api" class="internal xref">Transparency Service API</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-messages" class="xref">Messages</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-messages" class="internal xref">Messages</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1.2.1">
-                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="xref">8.1.1</a>.  <a href="#name-register-signed-claims" class="xref">Register Signed Claims</a></p>
+                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-register-signed-claims" class="internal xref">Register Signed Claims</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1.2.2">
-                    <p id="section-toc.1-1.8.2.1.2.2.1"><a href="#section-8.1.2" class="xref">8.1.2</a>.  <a href="#name-retrieve-registration-recei" class="xref">Retrieve Registration Receipt</a></p>
+                    <p id="section-toc.1-1.8.2.1.2.2.1"><a href="#section-8.1.2" class="auto internal xref">8.1.2</a>.  <a href="#name-retrieve-registration-recei" class="internal xref">Retrieve Registration Receipt</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-privacy-considerations" class="xref">Privacy Considerations</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="xref">10.1</a>.  <a href="#name-threat-model" class="xref">Threat Model</a></p>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-threat-model" class="internal xref">Threat Model</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.1">
-                    <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="xref">10.1.1</a>.  <a href="#name-claim-authentication-and-tr" class="xref">Claim authentication and transparency.</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="auto internal xref">10.1.1</a>.  <a href="#name-claim-authentication-and-tr" class="internal xref">Claim authentication and transparency.</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.2">
-                    <p id="section-toc.1-1.10.2.1.2.2.1"><a href="#section-10.1.2" class="xref">10.1.2</a>.  <a href="#name-confidentiality-and-privacy" class="xref">Confidentiality and privacy.</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.2.1"><a href="#section-10.1.2" class="auto internal xref">10.1.2</a>.  <a href="#name-confidentiality-and-privacy" class="internal xref">Confidentiality and privacy.</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.3">
-                    <p id="section-toc.1-1.10.2.1.2.3.1"><a href="#section-10.1.3" class="xref">10.1.3</a>.  <a href="#name-cryptographic-assumptions" class="xref">Cryptographic Assumptions</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.3.1"><a href="#section-10.1.3" class="auto internal xref">10.1.3</a>.  <a href="#name-cryptographic-assumptions" class="internal xref">Cryptographic Assumptions</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.4">
-                    <p id="section-toc.1-1.10.2.1.2.4.1"><a href="#section-10.1.4" class="xref">10.1.4</a>.  <a href="#name-ts-clients" class="xref">TS Clients</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.4.1"><a href="#section-10.1.4" class="auto internal xref">10.1.4</a>.  <a href="#name-ts-clients" class="internal xref">TS Clients</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.5">
-                    <p id="section-toc.1-1.10.2.1.2.5.1"><a href="#section-10.1.5" class="xref">10.1.5</a>.  <a href="#name-identity" class="xref">Identity</a></p>
+                    <p id="section-toc.1-1.10.2.1.2.5.1"><a href="#section-10.1.5" class="auto internal xref">10.1.5</a>.  <a href="#name-identity" class="internal xref">Identity</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="auto internal xref">11</a>. <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-references" class="xref">References</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="auto internal xref">12</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.1">
-                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="xref">12.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+                <p id="section-toc.1-1.12.2.1.1"><a href="#section-12.1" class="auto internal xref">12.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12.2.2">
-                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="xref">12.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+                <p id="section-toc.1-1.12.2.2.1"><a href="#section-12.2" class="auto internal xref">12.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="xref">Appendix A</a>.  <a href="#name-attic" class="xref">Attic</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-attic" class="internal xref">Attic</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.14.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1321,7 +1321,7 @@ It achieves this goal by enforcing the following complementary security guarante
 </li>
       </ol>
 <p id="section-1-3">The first guarantee is achieved by requiring issuers to sign their statements and associated metadata using a distributed public key infrastructure. The second guarantee is achieved by storing the signed statement in an immutable, append-only, transparent Registry. The last guarantee is achieved by implementing the Registry using a verifiable data structure (such as a Merkle Tree), and by requiring a TS that operates the Registry to endorse its state at the time of registration.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">The guarantees and techniques used in this document generalize those of Certificate Transparency <span>[<a href="#RFC9162" class="xref">RFC9162</a>]</span>, which can be re-interpreted as an instance of this architecture for the supply chain of X.509 certificates. However, the range of use cases and applications in this document is much broader, which requires much more flexibility in how each TS implements and operates its Registry. Each service may enforce its own policy for authorizing entities to register their claims on the TS. Some TS may also enforce access control policies to limit who can audit the full Registry, or keep some information on the Registry encrypted. Nevertheless, it is critical to provide global interoperability for all TS instances as the composition and configuration of involved supply chain entities and their system components is ever changing and always in flux.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-4">The guarantees and techniques used in this document generalize those of Certificate Transparency <span>[<a href="#RFC9162" class="cite xref">RFC9162</a>]</span>, which can be re-interpreted as an instance of this architecture for the supply chain of X.509 certificates. However, the range of use cases and applications in this document is much broader, which requires much more flexibility in how each TS implements and operates its Registry. Each service may enforce its own policy for authorizing entities to register their claims on the TS. Some TS may also enforce access control policies to limit who can audit the full Registry, or keep some information on the Registry encrypted. Nevertheless, it is critical to provide global interoperability for all TS instances as the composition and configuration of involved supply chain entities and their system components is ever changing and always in flux.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">A TS provides visibility into claims issued by supply chain entities and their sub-systems. These claims are called Digital Supply Chain Artifacts (DSCA).
 A TS vouches for specific and well-defined metadata about these DSCAs. Some metadata is selected (and signed) by the issuer, indicating, e.g., "who issued the DSCA" or "what type of DSCA is described" or "what is the DSCA version"; whereas additional metadata is selected (and countersigned) by the TS, indicating, e.g., "when was the DSCA registered in the Registry". The DSCA contents can be opaque to the TS, if so desired: it is the metadata that must always be transparent in order to warrant trust.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">Transparent claims provide a common basis for holding issuers accountable for the DSCA they release and (more generally) principals accountable for auxiliary claims they make about DSCAs. Hence, issuers may register new claims about their artifacts, but they cannot delete or alter earlier claims, or hide their claims from third parties such as auditors.<a href="#section-1-6" class="pilcrow">¶</a></p>
@@ -1337,8 +1337,8 @@ A TS vouches for specific and well-defined metadata about these DSCAs. Some meta
 Analogously, DSCA Consumers rely on verifiable trustworthiness assertions associated with DSCAs and their processing in a believable manner.
 If trust can be put into the operations that record DSCAs in a secure, append-only Registry via an online operation, the same trust can be put into a corresponding receipt that is the result of these online operations issued by the TS and that can be validated in offline operations.<a href="#section-1-10" class="pilcrow">¶</a></p>
 <p id="section-1-11">The TS specified in this architecture can be implemented by various different types of services in various types of languages provided via various variants of API layouts.<a href="#section-1-11" class="pilcrow">¶</a></p>
-<p id="section-1-12">The global interoperability enabled and guaranteed by the TS is enabled via core components (architectural constituents) that come with prescriptive requirements (that are typically hidden away from the user audience via APIs). The core components are based on the Concise Signing and Encryption standard specified in <span>[<a href="#RFC8152" class="xref">RFC8152</a>]</span>, which is used to sign released DSCAs and to build and maintain a Merkle tree that functions as the append-only Registry for DSCAs.
-The format and verification process for Registry-based transparency receipts are described in <span>[<a href="#I-D.birkholz-scitt-receipts" class="xref">I-D.birkholz-scitt-receipts</a>]</span>.<a href="#section-1-12" class="pilcrow">¶</a></p>
+<p id="section-1-12">The global interoperability enabled and guaranteed by the TS is enabled via core components (architectural constituents) that come with prescriptive requirements (that are typically hidden away from the user audience via APIs). The core components are based on the Concise Signing and Encryption standard specified in <span>[<a href="#RFC8152" class="cite xref">RFC8152</a>]</span>, which is used to sign released DSCAs and to build and maintain a Merkle tree that functions as the append-only Registry for DSCAs.
+The format and verification process for Registry-based transparency receipts are described in <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span>.<a href="#section-1-12" class="pilcrow">¶</a></p>
 <div id="sec-requirements-notation">
 <section id="section-1.1">
         <h3 id="name-requirements-notation">
@@ -1346,7 +1346,7 @@ The format and verification process for Registry-based transparency receipts are
         </h3>
 <p id="section-1.1-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
-described in BCP 14 <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="xref">RFC8174</a>]</span> when, and only when, they
+described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1405,7 +1405,7 @@ and their provenance (source code, build reports, audit reports,...) can provide
         <dd class="break"></dd>
 <dt id="section-3-2.3">Statement:</dt>
         <dd style="margin-left: 1.5em" id="section-3-2.4">
-          <p id="section-3-2.4.1">any serializable information about an Artifact. To help interpretation of Statements, they must be tagged with a media type (as specified in <span>[<a href="#RFC6838" class="xref">RFC6838</a>]</span>).
+          <p id="section-3-2.4.1">any serializable information about an Artifact. To help interpretation of Statements, they must be tagged with a media type (as specified in <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span>).
 For example, a statement may represent a Software Bill Of Materials (SBOM) that lists the ingredients of a software Artifact, or some endorsement or attestation about an Artifact.<a href="#section-3-2.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -1523,7 +1523,7 @@ Auditor    -&gt;       Collect Receipts     Replay Registry
 </pre><a href="#section-5-1" class="pilcrow">¶</a>
 </div>
 <p id="section-5-2">The SCITT architecture consists of a very loose federation of Transparency Services, and a set of common formats and protocols for issuing, registering and auditing Claims.
-In order to accommodate as many TS implementations as possible, this document only specifies the format of Claims (which must be used by all Issuers) and a very thin wrapper format for Receipts, which specifies the TS identity and the Registry algorithm. Most of the details of the Receipt's contents are specific to the Registry algorithm. The <span>[<a href="#I-D.birkholz-scitt-receipts" class="xref">I-D.birkholz-scitt-receipts</a>]</span> document defines two initial Registry algorithms (for historical and sparse Merkle Trees), but other Registry formats (such as blockchains, or hybrid historical and indexed Merkle Trees) may be proposed later.<a href="#section-5-2" class="pilcrow">¶</a></p>
+In order to accommodate as many TS implementations as possible, this document only specifies the format of Claims (which must be used by all Issuers) and a very thin wrapper format for Receipts, which specifies the TS identity and the Registry algorithm. Most of the details of the Receipt's contents are specific to the Registry algorithm. The <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span> document defines two initial Registry algorithms (for historical and sparse Merkle Trees), but other Registry formats (such as blockchains, or hybrid historical and indexed Merkle Trees) may be proposed later.<a href="#section-5-2" class="pilcrow">¶</a></p>
 <p id="section-5-3">In this section, we describe at a high level the three main roles and associated processes in SCITT: Issuers and the Claim issuance process, transparency Registry and the Claim Registration process, and Verifiers and the Receipt validation process.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <div id="sec-claim-issuance-and-registration">
 <section id="section-5.1">
@@ -1566,8 +1566,8 @@ However, this set of mandatory metadata is not sufficient to express many import
         <h3 id="name-transparency-service-ts">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-transparency-service-ts" class="section-name selfRef">Transparency Service (TS)</a>
         </h3>
-<p id="section-5.2-1">The role of TS can be decomposed into several major functions. The most important is maintaining a Registry, the verifiable data structure that records Claims, and enforcing a Registration policy. It also maintains a service key, which is used to endorse the state of the Registry in Receipts. All TS <span class="bcp14">MUST</span> expose standard endpoints for Registration of Claims and Receipt issuance, which is described in <a href="#sec-messages" class="xref">Section 8.1</a>. Each TS also defines its Registration policy, which <span class="bcp14">MUST</span> apply to all entries in the Registry.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">The combination of Registry, identity, Registration policy evaluation, and Registration endpoint constitute the trusted part of the TS. Each of these components <span class="bcp14">SHOULD</span> be carefully protected against both external attacks and internal misbehavior by some or all of the operators of the TS. For instance, the code for policy evaluation, Registry extension and endorsement may be protected by running in a TEE; the Registry may be replicated and a consensus algorithm such as Practical Byzantine Fault Tolerance (pBFT <span>[<a href="#PBFT" class="xref">PBFT</a>]</span>) may be used to protect against malicious or vulnerable replicas; threshold signatures may be use to protect the service key, etc.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">The role of TS can be decomposed into several major functions. The most important is maintaining a Registry, the verifiable data structure that records Claims, and enforcing a Registration policy. It also maintains a service key, which is used to endorse the state of the Registry in Receipts. All TS <span class="bcp14">MUST</span> expose standard endpoints for Registration of Claims and Receipt issuance, which is described in <a href="#sec-messages" class="auto internal xref">Section 8.1</a>. Each TS also defines its Registration policy, which <span class="bcp14">MUST</span> apply to all entries in the Registry.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">The combination of Registry, identity, Registration policy evaluation, and Registration endpoint constitute the trusted part of the TS. Each of these components <span class="bcp14">SHOULD</span> be carefully protected against both external attacks and internal misbehavior by some or all of the operators of the TS. For instance, the code for policy evaluation, Registry extension and endorsement may be protected by running in a TEE; the Registry may be replicated and a consensus algorithm such as Practical Byzantine Fault Tolerance (pBFT <span>[<a href="#PBFT" class="cite xref">PBFT</a>]</span>) may be used to protect against malicious or vulnerable replicas; threshold signatures may be use to protect the service key, etc.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <p id="section-5.2-3">Beyond the trusted components, Transparency Services may operate additional endpoints for auditing, for instance to query for the history of Claims made by a given Issuer and Feed. Implementations of TS <span class="bcp14">SHOULD</span> avoid using the service identity and extending the Registry in auditing endpoints; as much as practical, the Registry <span class="bcp14">SHOULD</span> contain enough evidence to re-construct verifiable proofs that the results returned by the auditing endpoint are consistent with a given state of the Registry.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 <div id="sec-service-identity-remote-attestation-and-keying">
 <section id="section-5.2.1">
@@ -1608,7 +1608,7 @@ An alternative design would be to include the registration policies in the recei
 <a href="#section-5.2.3" class="section-number selfRef">5.2.3. </a><a href="#name-registry-security-requireme" class="section-name selfRef">Registry Security Requirements</a>
           </h4>
 <p id="section-5.2.3-1">There are many different candidate verifiable data structures that may be used to implement the Registry, such as chronological Merkle Trees, sparse/indexed Merkle Trees, full blockchains, and many other variants. We only require the Registry to support concise Receipts (i.e. whose size grows at most logarithmically in the number of entries in the Registry). This does not necessarily rule out blockchains as a Registry, but may necessitate advanced Receipt schemes that use arguments of knowledge and other verifiable computing techniques.<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.3-2">Since the details of how to verify a Receipt are specific to the data structure, we do not specify any particular Registry format in this document. Instead, we propose two initial formats for Registry in <span>[<a href="#I-D.birkholz-scitt-receipts" class="xref">I-D.birkholz-scitt-receipts</a>]</span> using historical and sparse Merkle Trees. Beyond the format of Receipts, we require generic properties that should be satisfied by the components in the TS that have the ability to write to the Registry.<a href="#section-5.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.3-2">Since the details of how to verify a Receipt are specific to the data structure, we do not specify any particular Registry format in this document. Instead, we propose two initial formats for Registry in <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span> using historical and sparse Merkle Trees. Beyond the format of Receipts, we require generic properties that should be satisfied by the components in the TS that have the ability to write to the Registry.<a href="#section-5.2.3-2" class="pilcrow">¶</a></p>
 <div id="sec-finality">
 <section id="section-5.2.3.1">
             <h5 id="name-finality">
@@ -1704,23 +1704,23 @@ They may additionally apply a validation policy based on the protected headers p
 <ul class="normal">
 <li class="normal" id="section-6.1-4.1">algorithm (label: <code>1</code>): Asymmetric signature algorithm used by the Claim Issuer, as an integer, for example <code>-35</code> for ECDSA with SHA-384, see <a href="https://www.iana.org/assignments/cose/cose.xhtml">COSE Algorithms registry</a>;<a href="#section-6.1-4.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-4.2">Issuer (label: <code>TBD</code>, to be registered): DID (Decentralized Identifier, see <a href="https://www.w3.org/TR/did-core/">W3C Candidate Recommendation</a>) of the signer, as a string, for example <code>did:web:example.com</code>;<a href="#section-6.1-4.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.1-4.2">Issuer (label: <code>TBD</code>, temporary: <code>391</code>): DID (Decentralized Identifier, see <a href="https://www.w3.org/TR/did-core/">W3C Candidate Recommendation</a>) of the signer, as a string, for example <code>did:web:example.com</code>;<a href="#section-6.1-4.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-4.3">Feed (label: <code>TBD</code>): the Issuer's name for the Artifact, as a string;<a href="#section-6.1-4.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.1-4.3">Feed (label: <code>TBD</code>, temporary: <code>392</code>): the Issuer's name for the Artifact, as a string;<a href="#section-6.1-4.3" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-6.1-4.4">payload type (label: <code>3</code>): Media type of payload as a string, for example <code>application/spdx+json</code><a href="#section-6.1-4.4" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-4.5">Registration policy info (label: <code>TBD</code>): a map of additional attributes to help enforce Registration policies;<a href="#section-6.1-4.5" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.1-4.5">Registration policy info (label: <code>TBD</code>, temporary: <code>393</code>): a map of additional attributes to help enforce Registration policies;<a href="#section-6.1-4.5" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-4.6">DID key selection hint (label: <code>TBD</code>): a DID method-specific selector for the signing key, as a bytestring.<a href="#section-6.1-4.6" class="pilcrow">¶</a>
+          <li class="normal" id="section-6.1-4.6">Key ID (label: <code>4</code>): Key ID, as a bytestring.<a href="#section-6.1-4.6" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-6.1-5">Additionally, Claims <span class="bcp14">MAY</span> carry the following unprotected headers:<a href="#section-6.1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-6.1">Receipts (label: <code>TBD</code>, to be registered): Array of Receipts, defined in <span>[<a href="#I-D.birkholz-scitt-receipts" class="xref">I-D.birkholz-scitt-receipts</a>]</span><a href="#section-6.1-6.1" class="pilcrow">¶</a>
+<li class="normal" id="section-6.1-6.1">Receipts (label: <code>TBD</code>, temporary: <code>394</code>): Array of Receipts, defined in <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span><a href="#section-6.1-6.1" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-6.1-7">In CDDL <span>[<a href="#RFC8610" class="xref">RFC8610</a>]</span> notation, the Envelope is defined as follows:<a href="#section-6.1-7" class="pilcrow">¶</a></p>
+<p id="section-6.1-7">In CDDL <span>[<a href="#RFC8610" class="cite xref">RFC8610</a>]</span> notation, the Envelope is defined as follows:<a href="#section-6.1-7" class="pilcrow">¶</a></p>
 <div id="section-6.1-8">
 <pre class="lang-cddl sourcecode">
 SCITT_Envelope = COSE_Sign1_Tagged
@@ -1746,14 +1746,16 @@ Reg_Info = {
 Protected_Header = {
   1 =&gt; int               ; algorithm identifier
   3 =&gt; tstr              ; payload type
-  258 =&gt; tstr            ; DID of Issuer
-  259 =&gt; tstr            ; Feed
-  260 =&gt; Reg_Info        ; Registration policy info
-  261 =&gt; bstr            ; key selector
+  4 =&gt; bstr              ; Key ID
+  ; TBD, Labels are temporary
+  391 =&gt; tstr            ; DID of Issuer
+  392 =&gt; tstr            ; Feed
+  393 =&gt; Reg_Info        ; Registration policy info
 }
 
 Unprotected_Header = {
-   ? 257 =&gt; SCITT_Receipt / [+ SCITT_Receipt]
+  ; TBD, Labels are temporary
+  ? 394 =&gt; [+ SCITT_Receipt]
 }
 </pre><a href="#section-6.1-8" class="pilcrow">¶</a>
 </div>
@@ -1867,7 +1869,7 @@ For now, we inline some significant policies to illustrate the most common use c
         <h3 id="name-validation-of-transparent-c">
 <a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-validation-of-transparent-c" class="section-name selfRef">Validation of Transparent Claims</a>
         </h3>
-<p id="section-6.5-1">This section provides additional implementation considerations, the high-level validation algorithm is described in <a href="#validation" class="xref">Section 5.3</a>, with the Registry-specific details of checking Receipts are covered in <span>[<a href="#I-D.birkholz-scitt-receipts" class="xref">I-D.birkholz-scitt-receipts</a>]</span>.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
+<p id="section-6.5-1">This section provides additional implementation considerations, the high-level validation algorithm is described in <a href="#validation" class="auto internal xref">Section 5.3</a>, with the Registry-specific details of checking Receipts are covered in <span>[<a href="#I-D.birkholz-scitt-receipts" class="cite xref">I-D.birkholz-scitt-receipts</a>]</span>.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
 <p id="section-6.5-2">Before checking a Claim, the Verifier must be configured with one or more identities of trusted Transparency Services. If more than one service is configured, the Verifier <span class="bcp14">MUST</span> return which service the Claim is registered on.<a href="#section-6.5-2" class="pilcrow">¶</a></p>
 <p id="section-6.5-3">In some scenarios, the Verifier already expects a specific Issuer and Feed for the Claim, while in other cases they are not known in advance and can be an output of validation. Verifiers <span class="bcp14">SHOULD</span> offer a configuration to decide if the Issuer's signature should be locally verified (which may require a DID resolution, and may fail if the manifest is not available or if the key is revoked), or if it should trust the validation done by the TS during Registration.<a href="#section-6.5-3" class="pilcrow">¶</a></p>
 <p id="section-6.5-4">Some Verifiers <span class="bcp14">MAY</span> decide to locally re-apply some or all of the Registration policies if they have limited trust in the TS. In addition, Verifiers <span class="bcp14">MAY</span> apply arbitrary validation policies after the signature and Receipt have been checked. Such policies may use as input all information in the Envelope, the Receipt, and the payload, as well as any local state.<a href="#section-6.5-4" class="pilcrow">¶</a></p>
@@ -2123,7 +2125,7 @@ and accept the risk of being blamed for inconsistent Registration or Issuer equi
       <h2 id="name-iana-considerations">
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-11-1">See Body <a href="#mybody" class="xref">Section 4</a>.<a href="#section-11-1" class="pilcrow">¶</a></p>
+<p id="section-11-1">See Body <a href="#mybody" class="auto internal xref">Section 4</a>.<a href="#section-11-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <section id="section-12">
