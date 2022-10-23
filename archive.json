@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-20T00:51:15.829093+00:00",
+  "timestamp": "2022-10-23T00:55:44.810665+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOG2uWFs5RlHAj",
       "title": "Update architecture to make it compile with aasvg.",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "eckelmeckel",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "At the moment the architecture diagram looks a bit unclear. Adapt to and make it compile (and look nice) with `aasvg` would be a good enhancement.",
       "createdAt": "2022-09-10T17:23:21Z",
-      "updatedAt": "2022-09-10T17:23:21Z",
-      "closedAt": null,
+      "updatedAt": "2022-10-21T16:11:38Z",
+      "closedAt": "2022-10-21T16:11:38Z",
       "comments": []
     },
     {
@@ -147,9 +147,9 @@
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
-      "body": "##  Compound User Story / Sequence Diagram\r\n\r\nAs a consumer, I want to understand if I should trust an artifact\r\nAs a producer, I want to be assured that the integrity of my artifacts has been reviewed by a trusted 3rd party.\r\n\r\n```mermaid\r\nsequenceDiagram\r\n    participant Issuer\r\n    participant Notary\r\n    Note left of Issuer: I take responsibility for the artifacts I produce\r\n    Issuer ->> Notary: These are the policies I am committed to meeting\r\n    Issuer ->> Notary: I stand by my claims about my artifact\r\n    loop Claims Check\r\n        Notary ->> Notary: Review relevant claims and policies\r\n    end\r\n    Notary ->> Issuer: Here is my endorsement and receipt\r\n    Consumer->>Notary: Is this artifact safe to use?\r\n    loop Endorsement Check\r\n        Notary->>Notary: Review relevant claims and endorsements\r\n    end\r\n     Notary ->> Consumer: You can trust this artifact, the endorsement is still valid\r\n     Note right of Consumer: I have confidence the artifacts I consume\r\n```\r\n",
+      "body": "##  Compound User Story / Sequence Diagram\r\n\r\nAs a consumer, I want to understand if I should trust an artifact\r\nAs a producer, I want to be assured that the integrity of my artifacts has been reviewed by a trusted 3rd party.\r\n\r\n```mermaid\r\nsequenceDiagram\r\n    participant Issuer\r\n    participant Notary\r\n    Note left of Issuer: I take responsibility for the artifacts I produce\r\n    Issuer ->> Notary: These are the policies I am committed to meeting\r\n    Issuer ->> Notary: I stand by my claims about my artifact\r\n    loop Claims Check\r\n        Notary ->> Notary: Review relevant claims and policies\r\n    end\r\n    Notary ->> Issuer: Here is my endorsement and receipt\r\n    Consumer->>Notary: Is this artifact safe to use?\r\n    loop Endorsement Check\r\n        Notary->>Notary: Review relevant claims and endorsements\r\n    end\r\n     Notary ->> Consumer: You can trust this artifact, the endorsement is still valid\r\n     Note right of Consumer: I have confidence in the artifacts I consume\r\n```\r\n",
       "createdAt": "2022-09-29T15:33:27Z",
-      "updatedAt": "2022-09-29T16:22:59Z",
+      "updatedAt": "2022-10-21T16:25:35Z",
       "closedAt": null,
       "comments": [
         {
@@ -173,7 +173,7 @@
       "labels": [],
       "body": "Reading the architecture doc, I see TS, meant to refer to a Transparency Service. I keep reading this as Time Stamp service. \r\nCould/should we replace TS with SCITT, as that is the term we're using.",
       "createdAt": "2022-10-06T20:32:38Z",
-      "updatedAt": "2022-10-07T18:11:00Z",
+      "updatedAt": "2022-10-21T12:59:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -182,6 +182,13 @@
           "body": "We may also want to reconcile TS, SCITT with Registry, as worded. All three represent a SCITT instance. Should we consolidate the references as one?\r\n- [ ] TS\r\n- [ ] SCITT Instance\r\n- [ ] Registry",
           "createdAt": "2022-10-07T18:11:00Z",
           "updatedAt": "2022-10-07T18:11:00Z"
+        },
+        {
+          "author": "fournet",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I have a slight preference for TS, as we use SCITT for the whole architecture (not its transparency service) and Registry as the more general service that also deals with queries, storage, etc. ",
+          "createdAt": "2022-10-21T12:59:36Z",
+          "updatedAt": "2022-10-21T12:59:36Z"
         }
       ]
     },
@@ -215,6 +222,22 @@
           "updatedAt": "2022-10-07T07:44:24Z"
         }
       ]
+    },
+    {
+      "number": 32,
+      "id": "I_kwDOG2uWFs5UjaTV",
+      "title": "Add claim and receipt side by side in future revision",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/32",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "We discussed a future revision where claim and receipt are visualized next to each other.\r\n\r\nhttps://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/23/files#r1001967472",
+      "createdAt": "2022-10-21T16:13:02Z",
+      "updatedAt": "2022-10-21T16:13:02Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -1925,24 +1948,26 @@
       "id": "PR_kwDOG2uWFs4-h4Hn",
       "title": "Refreshing our placeholder for TS Federation",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/21",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "fournet",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Cleaning up the Federation section, still TBD. ",
       "createdAt": "2022-09-07T17:59:48Z",
-      "updatedAt": "2022-10-07T20:33:37Z",
+      "updatedAt": "2022-10-21T16:15:05Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
       "headRepository": "fournet/draft-birkholz-scitt-architecture",
       "headRefName": "federation-tdb",
-      "headRefOid": "56edc1e56c63802ac19c4dc516e00d6cb54d82a5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "eb85ae381b74c647c51c1e436a7a927b6279304c",
+      "closedAt": "2022-10-21T16:15:05Z",
+      "mergedAt": "2022-10-21T16:15:05Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "78ccf903850d290a877461182efe07a9f865504b"
+      },
       "comments": [
         {
           "author": "henkbirkholz",
@@ -1950,6 +1975,20 @@
           "body": "Also:\r\n> *** Run 'make fix-lint' to automatically fix some errors",
           "createdAt": "2022-09-28T08:31:32Z",
           "updatedAt": "2022-09-28T08:31:32Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "Linting errors need to be addressed. @henkbirkholz if this blocks publishing / merging perhaps we can merge and then fix?",
+          "createdAt": "2022-10-21T14:12:53Z",
+          "updatedAt": "2022-10-21T14:12:53Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "body": "> Linting errors need to be addressed. @henkbirkholz if this blocks publishing / merging perhaps we can merge and then fix?\r\n\r\nYes, I can fix the lint after merging. If this would be a branch and not a fork, I could do it here more easily.",
+          "createdAt": "2022-10-21T14:18:06Z",
+          "updatedAt": "2022-10-21T14:18:06Z"
         }
       ],
       "reviews": [
@@ -1986,24 +2025,26 @@
       "id": "PR_kwDOG2uWFs4-uL0A",
       "title": "Updated architecture diagram to make it compile with aasvg.",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "eckelmeckel",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #22.\r\nSigned-off-by: Michael Eckel <michael.eckel@sit.fraunhofer.de>",
       "createdAt": "2022-09-10T17:24:34Z",
-      "updatedAt": "2022-09-29T16:01:13Z",
+      "updatedAt": "2022-10-21T16:13:08Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
       "headRepository": "eckelmeckel/draft-birkholz-scitt-architecture",
       "headRefName": "fix-diagram-for-aasvg",
       "headRefOid": "12ea02bdc54b775e1d790a05bae64e613561ae0b",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-10-21T16:11:37Z",
+      "mergedAt": "2022-10-21T16:11:37Z",
+      "mergedBy": "henkbirkholz",
+      "mergeCommit": {
+        "oid": "869a617e1fca9a74c6d9726ddf0575453a57c496"
+      },
       "comments": [
         {
           "author": "OR13",
@@ -2026,6 +2067,46 @@
           "createdAt": "2022-09-29T16:00:58Z",
           "updatedAt": "2022-09-29T16:00:58Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5EnkMN",
+          "commit": {
+            "abbreviatedOid": "12ea02b"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-21T16:12:30Z",
+          "updatedAt": "2022-10-21T16:12:30Z",
+          "comments": [
+            {
+              "originalPosition": 47,
+              "body": "We discussed a future revision where claim and receipt are visualized next to each other.",
+              "createdAt": "2022-10-21T16:12:30Z",
+              "updatedAt": "2022-10-21T16:12:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5EnkY2",
+          "commit": {
+            "abbreviatedOid": "12ea02b"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-21T16:13:07Z",
+          "updatedAt": "2022-10-21T16:13:08Z",
+          "comments": [
+            {
+              "originalPosition": 47,
+              "body": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/32",
+              "createdAt": "2022-10-21T16:13:07Z",
+              "updatedAt": "2022-10-21T16:13:08Z"
+            }
+          ]
         }
       ]
     },
@@ -2041,7 +2122,7 @@
       "labels": [],
       "body": "Signed-off-by: Steve Lasker <stevenlasker@hotmail.com>",
       "createdAt": "2022-10-07T18:29:42Z",
-      "updatedAt": "2022-10-07T18:29:43Z",
+      "updatedAt": "2022-10-21T16:13:17Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
@@ -2052,34 +2133,105 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "fournet",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I still prefer TS to SCITT instance, as in this architecture it refers specifically to the core transparency service for SCITT. Perhaps SCITTS if TS is too overloaded?  ",
+          "createdAt": "2022-10-21T13:10:43Z",
+          "updatedAt": "2022-10-21T13:10:43Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5EhFl0",
+          "commit": {
+            "abbreviatedOid": "c4519b1"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-20T15:45:45Z",
+          "updatedAt": "2022-10-20T15:45:45Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5EnkcU",
+          "commit": {
+            "abbreviatedOid": "c4519b1"
+          },
+          "author": "henkbirkholz",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "Postponed the proposal for discussion at IETF 115",
+          "createdAt": "2022-10-21T16:13:17Z",
+          "updatedAt": "2022-10-21T16:13:17Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 31,
       "id": "PR_kwDOG2uWFs5BBOqu",
       "title": "Add temporary header labels",
       "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/31",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "letmaik",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This adds temporary integer header parameter labels to have something to prototype against until the new fields are registered.\r\nI used 391 as starting offset as that's S+C+I+T+T.",
       "createdAt": "2022-10-18T13:53:04Z",
-      "updatedAt": "2022-10-18T13:53:05Z",
+      "updatedAt": "2022-10-21T14:35:22Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
       "headRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "headRefName": "letmaik/labels",
       "headRefOid": "7e0a8f9794afc40fd6e1c441f8f8e210bbabd9a6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-10-21T14:35:16Z",
+      "mergedAt": "2022-10-21T14:35:16Z",
+      "mergedBy": "letmaik",
+      "mergeCommit": {
+        "oid": "f25d7cb5e91b61851e4733246e02bd4a22e6d4c1"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5EhFw8",
+          "commit": {
+            "abbreviatedOid": "7e0a8f9"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-10-20T15:46:11Z",
+          "updatedAt": "2022-10-20T15:46:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOG2uWFs5EhF2B",
+          "commit": {
+            "abbreviatedOid": "7e0a8f9"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-10-20T15:46:23Z",
+          "updatedAt": "2022-10-20T15:46:23Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "+1 to this.",
+              "createdAt": "2022-10-20T15:46:23Z",
+              "updatedAt": "2022-10-20T15:46:23Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
