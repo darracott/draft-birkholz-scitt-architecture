@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-10-23T00:55:44.810665+00:00",
+  "timestamp": "2022-11-08T00:42:18.743992+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -238,6 +238,59 @@
       "updatedAt": "2022-10-21T16:13:02Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 33,
+      "id": "I_kwDOG2uWFs5VrEcS",
+      "title": "Clarify how a statement refers to other documents",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/33",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The current definition of a statement says:\r\n\r\n> Statement:\r\nany serializable information about an Artifact. To help interpretation of Statements, they must be tagged with a media type (as specified in [[RFC6838](https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#RFC6838)]). For example, a statement may represent a Software Bill Of Materials (SBOM) that lists the ingredients of a software Artifact, or some endorsement or attestation about an Artifact.\r\n\r\nThe proposal is to assure the SBOM, as an example content that is being added to the registry, has a means to be stored outside the ledger, but verified by the ledger.\r\nOn submission to the ledger, the SBOM is referenced, but not directly embedded in the statement. This allows the registry to optionally index the content. A particular instance may put the content on the ledger, or store it alongside the ledger.",
+      "createdAt": "2022-11-06T10:12:05Z",
+      "updatedAt": "2022-11-06T10:12:05Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 34,
+      "id": "I_kwDOG2uWFs5Vrj1t",
+      "title": "Converge Claim and Statement",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/34",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "letmaik",
+        "mprorock",
+        "rjb4standards",
+        "ad-l",
+        "kaywilliams"
+      ],
+      "labels": [],
+      "body": "At IETF-115, discussions involved:\r\n\r\n- Leverage existing IETF and/or W3C definitions and terms, or at least not conflict and cause confusion with existing terms.\r\n- Minimize the concept count\r\n\r\n### Existing Standards Terminology\r\n\r\n- [IETF: Remote Attestation Procedures Architecture (RATS)](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#name-artifacts)\r\n- [IETF: SCITT Architecture](https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#name-terminology)\r\n- [IETF: RFC7519](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#RFC7519)\r\n\r\n### Proposal\r\n\r\nClaim conflicts with RATS and W3C\r\n\r\nComparison of terms across orgs as the object changes state:\r\n![](https://hackmd.io/_uploads/SklGkMSBs.png)\r\n\r\nInstead of transitioning from `statement` to `claim` to `transparent claim`, what if we used `statement` as the base concept:\r\n- Statement --> Signed Statment --> Transparent Statement",
+      "createdAt": "2022-11-06T17:39:44Z",
+      "updatedAt": "2022-11-07T12:37:06Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "kaywilliams",
+          "authorAssociation": "NONE",
+          "body": "Agree with this proposal. It is conceptually simpler to understand that an underlying item ('statement') transitions through states (unsigned, signed, transparent). When it comes to terminology lets aim for the KISS principle.",
+          "createdAt": "2022-11-07T09:32:13Z",
+          "updatedAt": "2022-11-07T09:32:13Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "What are the constraints surrounding statement and claim? How are they distinguished?",
+          "createdAt": "2022-11-07T12:37:05Z",
+          "updatedAt": "2022-11-07T12:37:05Z"
+        }
+      ]
     }
   ],
   "pulls": [
