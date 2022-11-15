@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-08T00:42:18.743992+00:00",
+  "timestamp": "2022-11-15T00:41:04.851989+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -273,7 +273,7 @@
       "labels": [],
       "body": "At IETF-115, discussions involved:\r\n\r\n- Leverage existing IETF and/or W3C definitions and terms, or at least not conflict and cause confusion with existing terms.\r\n- Minimize the concept count\r\n\r\n### Existing Standards Terminology\r\n\r\n- [IETF: Remote Attestation Procedures Architecture (RATS)](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#name-artifacts)\r\n- [IETF: SCITT Architecture](https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#name-terminology)\r\n- [IETF: RFC7519](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#RFC7519)\r\n\r\n### Proposal\r\n\r\nClaim conflicts with RATS and W3C\r\n\r\nComparison of terms across orgs as the object changes state:\r\n![](https://hackmd.io/_uploads/SklGkMSBs.png)\r\n\r\nInstead of transitioning from `statement` to `claim` to `transparent claim`, what if we used `statement` as the base concept:\r\n- Statement --> Signed Statment --> Transparent Statement",
       "createdAt": "2022-11-06T17:39:44Z",
-      "updatedAt": "2022-11-07T12:37:06Z",
+      "updatedAt": "2022-11-14T17:31:46Z",
       "closedAt": null,
       "comments": [
         {
@@ -289,8 +289,66 @@
           "body": "What are the constraints surrounding statement and claim? How are they distinguished?",
           "createdAt": "2022-11-07T12:37:05Z",
           "updatedAt": "2022-11-07T12:37:05Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "@rjb4standards, \r\nusing the picture @OR13 provided above,\r\n- A producer creates a **statement** about an artifact\r\n- When a producer **signed the statement** (issuer of a cert, signed by an identity)\r\n- A **transparent statement** is the result of the signed statement being placed on the ledger, and notarized with a counter signature\r\n\r\nAll we're proposing here is converging terminology, as changing the terminology from statement to claim infers it's more than furthering the statement along the workflow",
+          "createdAt": "2022-11-14T16:39:29Z",
+          "updatedAt": "2022-11-14T16:39:29Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Thanks Steve. Assuming a consumer only has the \"artifact\" in their possession, i.e. a software package downloaded from GitHub, how could they verify the trustworthiness of the package, having nothing more than the package/artifact itself in their possession, and knowledge of a SCITT Trusted Registry Registry service.\r\n\r\nThis is the scenario we face every day in the SW supply chain, within the consumer role. \r\n\r\nThis is the scenario I'm hoping SCITT will provide a solution, or RATS - it doesn't really matter to me if it's RATS or SCITT - I care about the functionality.",
+          "createdAt": "2022-11-14T17:11:03Z",
+          "updatedAt": "2022-11-14T17:11:03Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "@rjb4standards, those are great questions. I'd just suggest we focus on the convergence of the terminology here. \r\n For the purposes of this issue, the issuer creates a statement about an artifact. It gets signed (signed statement), and placed on the ledger (transparent statement). \r\nIf the user simply wants to get a notarized statement that the `net-monitor:v1` software was issued by \"wabbit-networks\", the user can submit a statement to the registry that it was signed by wabbit-networks. There's no \"evidence\" or additional information provided, yet. It's simply a notarized statement that wabbit-networks submitted the artifact.",
+          "createdAt": "2022-11-14T17:16:19Z",
+          "updatedAt": "2022-11-14T17:16:19Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Steve, will SCITT provide a consumer the ability to query the web registry for a notarized statement for an artifact, having nothing more than the artifact in their possession?\r\n\r\nI download a program from GitHub, and want to \"ask SCITT\" is this program trustworthy? This is the scenario that is prevalent across the supply chain today.",
+          "createdAt": "2022-11-14T17:22:48Z",
+          "updatedAt": "2022-11-14T17:22:48Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "Another great question, which we've been saying \"yes\", but \"how\" is the open question.\r\nBut, I'd also ask we focus on the terminology issue here and open those discussions in the IETF alias.",
+          "createdAt": "2022-11-14T17:29:26Z",
+          "updatedAt": "2022-11-14T17:29:26Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "ok.",
+          "createdAt": "2022-11-14T17:31:45Z",
+          "updatedAt": "2022-11-14T17:31:45Z"
         }
       ]
+    },
+    {
+      "number": 35,
+      "id": "I_kwDOG2uWFs5WVnQj",
+      "title": "Statement by reference",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/35",
+      "state": "OPEN",
+      "author": "letmaik",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "At IETF 115 there were discussions on having some kind of standard way to deal with statements by reference. Here are also the two relevant slides from https://datatracker.ietf.org/doc/slides-115-scitt-combined-scitt-presentations/:\r\n\r\n![image](https://user-images.githubusercontent.com/530988/201730201-6160b331-33d9-42fa-b5d9-c1e8ac18bd15.png)\r\n![image](https://user-images.githubusercontent.com/530988/201730248-139b8be6-4554-4a09-b6a3-60e8a8e10ecd.png)\r\n\r\nSimply using COSE detached payloads as defined in the RFC would not be sufficient as the payload would still be required during signature validation when registering the signed statement.\r\n\r\nInstead, having a specific content type for referencing external statements may be useful. Note that this format by itself would be a statement.\r\n\r\n[RFC 9054](https://www.rfc-editor.org/rfc/rfc9054.html#name-example-cbor-hash-structure) gives two examples for such hash structures:\r\n\r\n```cddl\r\nCOSE_Hash_V = (\r\n    1 : int / tstr, # Algorithm identifier\r\n    2 : bstr, # Hash value\r\n    ? 3 : tstr, # Location of object that was hashed\r\n    ? 4 : any   # object containing other details and things\r\n    )\r\n```\r\n\r\nand \r\n\r\n```cddl\r\nCOSE_Hash_Find = [\r\n    hashAlg : int / tstr,\r\n    hashValue : bstr\r\n]\r\n```\r\n\r\n[SUIT's digest container](https://www.ietf.org/archive/id/draft-ietf-suit-manifest-21.html#name-suit-digest-container) defines this as:\r\n```cddl\r\nSUIT_Digest = [\r\n  suit-digest-algorithm-id : suit-cose-hash-algs,\r\n  suit-digest-bytes : bstr,\r\n  * $$SUIT_Digest-extensions   ; described as optional extra values required by a hash alg (?)\r\n]\r\n```\r\n\r\nWould having a variant of one of the above as a CBOR content type address this issue?\r\nShould location of the referenced content be included? How? Should location hints be globally unique? Resolvable?\r\nShould a SCITT transparency service know about this content type and at least validate its CDDL schema?",
+      "createdAt": "2022-11-14T18:03:10Z",
+      "updatedAt": "2022-11-14T18:03:10Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
