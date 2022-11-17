@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-15T00:41:04.851989+00:00",
+  "timestamp": "2022-11-17T00:40:15.923252+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -273,7 +273,7 @@
       "labels": [],
       "body": "At IETF-115, discussions involved:\r\n\r\n- Leverage existing IETF and/or W3C definitions and terms, or at least not conflict and cause confusion with existing terms.\r\n- Minimize the concept count\r\n\r\n### Existing Standards Terminology\r\n\r\n- [IETF: Remote Attestation Procedures Architecture (RATS)](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#name-artifacts)\r\n- [IETF: SCITT Architecture](https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#name-terminology)\r\n- [IETF: RFC7519](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#RFC7519)\r\n\r\n### Proposal\r\n\r\nClaim conflicts with RATS and W3C\r\n\r\nComparison of terms across orgs as the object changes state:\r\n![](https://hackmd.io/_uploads/SklGkMSBs.png)\r\n\r\nInstead of transitioning from `statement` to `claim` to `transparent claim`, what if we used `statement` as the base concept:\r\n- Statement --> Signed Statment --> Transparent Statement",
       "createdAt": "2022-11-06T17:39:44Z",
-      "updatedAt": "2022-11-14T17:31:46Z",
+      "updatedAt": "2022-11-16T16:31:44Z",
       "closedAt": null,
       "comments": [
         {
@@ -331,6 +331,125 @@
           "body": "ok.",
           "createdAt": "2022-11-14T17:31:45Z",
           "updatedAt": "2022-11-14T17:31:45Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "Given the confusion with RATs I suggest we avoid reusing \"claim\" and we make SCITT apply to statements, with explanatory text under each definition, relating the concept to other standards.\r\n\r\nFor example:\r\n\r\nstatement\r\n\r\n- like a JOSE claim\r\n- like RATs claims\r\n- like W3C VC claims - https://www.w3.org/TR/vc-data-model/#claims\r\n\r\nsigned statement\r\n\r\n- like a JOSE JWT\r\n- like RATs evidence\r\n- like W3C VC credentials - https://www.w3.org/TR/vc-data-model/#credentials\r\n\r\ntransparent statement\r\n\r\n- like a JOSE JWT\r\n- like RATs endorsements ?\r\n- like W3C VC credentials - https://www.w3.org/TR/vc-data-model/#credentials\r\n\r\n",
+          "createdAt": "2022-11-15T14:49:26Z",
+          "updatedAt": "2022-11-15T14:50:13Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Orie, here is an example flow from the software supply chain today:\r\n1. An artifact is born, i.e. app in app store, SBOM, NIST VDR, etc.\r\n2. Consumer wants to know, is artifact trustworthy; check the trust registry for trust declarations for artifact\r\n3. Assuming a process will exist to populate the trust registry with trust declarations for the artifact\r\n4. Process will need a \"trusted party\" to determine that artifact is trustworthy, using a defined process and criteria that are intended to validate/confirm the trustworthiness of an artifact based on evidence collected/produced.\r\n5. Trusted party determines that a trust declaration is warranted, based on the defined process and criteria\r\n6. Trusted party requests registration of a trust declaration in the trusted registry for the now trusted artifact\r\n7. Registration is confirmed in the trust registry via a positive acknowledgement that the entry is stored in the registry\r\n8. Trusted party  that performed the process resulting in the registration of a trust declaration informs the artifact owner that the artifact has been registered as trustworthy in the SCITT trust registry \r\n9. Artifact owner informs interested parties on how to check a SCITT trust registry  for trustworthiness of an artifact\r\n10. Interested parties query the SCITT Trust Registry for trust declarations for an artifact, using information provided by the artifact owner\r\n11. Upon receiving confirmation from the Trust Registry Service that an artifact is listed as trustworthy the party with an interested in the artifact proceeds to implement/apply the artifact in its intended role\r\n\r\nIt would help me \"connect the dots\" if you could identify the items listed/used in the flow above using the proposed terminology. Thanks... Dick",
+          "createdAt": "2022-11-15T15:14:00Z",
+          "updatedAt": "2022-11-15T15:34:46Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "@rjb4standards all of those are statements, that an issuer might take responsibility for by making signed statements, and that an interested supply chain party might then make transparent by submitting to a transparency service and obtaining a receipt.\r\n\r\nWhile we are focused on software supply chain use case, there is no reason to look at anything other than the \"header\" for  IETF... we are payload agnostic.\r\n\r\nIf you have an artifact, or metadata about an artifact, you might ask a transparency service or a database in front of one, \"what signed statements or transparent statements do you have that are related to my artifact or metadata\".\r\n\r\nThat query would in turn be translated into a format that processed the IETF standard formats for \"signed statement\" or \"transparent statement\".\r\n\r\nIn the context of IETF work, we are interested in the following:\r\n\r\n- What is the shape of a \"claim\" or \"signed statement\".\r\n- What is the shape of a \"transparent statement\" or \"receipt\".\r\n- What is a query interface for a transparency service, noting that probably advanced queries are handled at another layer.\r\n\r\nIn the context of the broader community, we are interested in the following:\r\n\r\n- Where to people proudly display their receipts / transparent statements ?\r\n- Which schemas for payloads are best for the industry to adopt?\r\n- How do we know if the issuer is the original author or just an interested party?\r\n- Which notaries / registries should I trust for receipts related to AI models vs Firmware?\r\n\r\nI suspect most of your questions have more to do with how the specifications will be deployed and used, and less to do with the specific requirements embedded in the specification, but I do think you are offering \"requirements\" which are accounted for in the slides presented at IETF 115 under the architecture section... In particular the slide describing \"what is a claim\" and the one describing \"what is a receipt\".\r\n\r\nWe've not discussed query formats for specific payload shapes in depth yet.\r\n\r\n",
+          "createdAt": "2022-11-15T17:24:06Z",
+          "updatedAt": "2022-11-15T17:24:06Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "I believe you are correct Orie:  I do think you are offering \"requirements\"\r\nI think this list represents \"minimum requirements\" for a minimum viable SCITT standard for software supply chain verification of trust for an \r\n\r\n- artifact/owner,\r\n- claim/trusted party that creates claims for artifacts and registers \"transparent claims\" in the registry based on defined procedures and criteria defined in SCITT RFC\r\n- results of inquiry for \"transparent statements\" about artifact produced by owner/relying party\r\n- ",
+          "createdAt": "2022-11-15T17:38:22Z",
+          "updatedAt": "2022-11-15T17:39:20Z"
+        },
+        {
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Quoting Orie:\r\n> What is the shape of a \"transparent statement\" or \"receipt\".\r\n\r\n\"transparent statement\" != \"receipt\", but rather \"transparent statement\"  = \"signed statement\" + \"receipt\".\r\n\r\nAlso, note that nothing is said about how \"signed statement\" and \"receipt\" are transported -- might be bundled together (e.g., using an unprotected header parameter in the \"signed statement\"), might be two files on disk, or something else entirely.\r\n\r\nIf we're clear on the above, then I'm in favor of the new terminology.\r\n\r\nIf anyone has concerns, please speak up.",
+          "createdAt": "2022-11-15T18:53:54Z",
+          "updatedAt": "2022-11-15T18:53:54Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Is the \"receipt\" component contained in a \"transparent statement\" a signed object, i.e. \"transparent statement\" = \"signed statement\" +  signed(receipt)\r\n\r\nIs a transparent statement digitally signed?",
+          "createdAt": "2022-11-15T19:09:54Z",
+          "updatedAt": "2022-11-15T19:09:54Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I prefer \"Claim\" over \"Signed Statement\" as it leaves flexibility of defining properly what a claim is: Today it is a Signed Statement presumably from one signer? Tomorrow it could be multiple signers vouching for the same Artifact thus it is \"Multi Signed Statement\".\r\nI am not too concerned about the overlap with RATS terminology so long as we define that within SCITT Ecosystem a Claim is a Signature of Issuer on the given Statement about an Artifact.",
+          "createdAt": "2022-11-15T19:13:55Z",
+          "updatedAt": "2022-11-15T19:13:55Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "What is an SBOM considered in this taxonomy? A claim, a statement or an artifact which a claim/statement refers to?",
+          "createdAt": "2022-11-15T19:17:41Z",
+          "updatedAt": "2022-11-15T19:17:41Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I think we are digressing from the core point of terminology here!\r\n\r\nDepends on the Use Case:\r\nIn Use Case 1: SBOM goes into registry!\r\n \r\nSBOM is a Statement about an Artifact (Software).\r\n\r\nWhen the issuer would Sign a SBOM before submitting it to the Registry, it will become a Claim.\r\n\r\nWhat the Registry returns is a Transparent Claim = Signed Claim + Receipt ",
+          "createdAt": "2022-11-15T19:21:53Z",
+          "updatedAt": "2022-11-15T19:21:53Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "FYI: Some SBOM's can be quite large, i.e. 2 MB of text.",
+          "createdAt": "2022-11-15T19:25:57Z",
+          "updatedAt": "2022-11-15T19:25:57Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Yes, then you need Use Case 2:\r\nUser Makes a statement about SBOM. Here SBOM itself is Artifact!\r\nThe Statement may contain details about SBOM. ( What is SBOM size, what is its hash, who is the owner etc).\r\nWhen user signs the Statement (about SBOM) it becomes a Claim.\r\nClaim enters the SCITT Registry and becomes a Transparent Claim.\r\n",
+          "createdAt": "2022-11-15T19:28:59Z",
+          "updatedAt": "2022-11-15T19:28:59Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Yogesh,\r\n\r\nHow will trust be assured if the user that creates an artifact, then makes a statement about the artifact, which becomes a claim that gets placed into a registry, becoming a \"transparent claim\" - this seems to be missing a critical step, a trusted objective party that assesses the statement for trustworthiness when deciding to create a claim that goes into the registry resulting in a \"Transparent Claim\" that end users can retrieve to verify the trustworthiness of an artifact, i.e. SBOM in this case.\r\n",
+          "createdAt": "2022-11-15T19:37:58Z",
+          "updatedAt": "2022-11-15T19:37:58Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> Yogesh,\r\n> \r\n> How will trust be assured if the user that creates an artifact, then makes a statement about the artifact, which becomes a claim that gets placed into a registry, becoming a \"transparent claim\" - this seems to be missing a critical step, a trusted objective party that assesses the statement for trustworthiness when deciding to create a claim that goes into the registry resulting in a \"Transparent Claim\" that end users can retrieve to verify the trustworthiness of an artifact, i.e. SBOM in this case.\r\n\r\nThe Statement including the SBOM Details does not necessarily be only about SBOM, but the statement is open enough to list the details about the Artifact also, which it links to SBOM.\r\nSo basically how the user constructs the Statement is entirely up to the Statement owner. Perhaps we should discuss what the Statements should look like but definitely we are digressing here where the original issue is about the terminologies!\r\n",
+          "createdAt": "2022-11-15T19:43:38Z",
+          "updatedAt": "2022-11-15T19:43:38Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "reminder to read the drafts:\r\n\r\n- https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html\r\n- https://ietf-scitt.github.io/draft-birkholz-scitt-receipts/draft-birkholz-scitt-receipts.html\r\n\r\nWhen we discuss terms, we are only discussing changes to these documents. \r\n\r\nThe goal of discussing on Github issues to gather consensus so that a pull request can be opened to make changes to these documents.\r\n\r\nWe are talking about adjusting this section of content:\r\n\r\nhttps://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#name-terminology",
+          "createdAt": "2022-11-15T19:54:15Z",
+          "updatedAt": "2022-11-15T19:54:15Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "These are all great discussions to create clarity for the e2e. Much of what @rjb4standards is discussing around larger SBOMs being a statement, is the [statement by reference](#35) conversations. Essentially, yes an SBOM is a statement, we're just discussing if the statement stores a hash of the SBOM that's stored alongside the ledger.\r\nHowever, these are orthogonal to the question in _this_ issue :)\r\n\r\nI'd suggest it's really important for us to simplify terms, not conflate confusion with RATS, which is very close to what we're doing, and move onto triaging all the other topics, such as #33, #35, #28, #36\r\n\r\nIn the spirit that we can't make everyone happy, can we get a thumbs up/down for **\"converging claims to statements\"**. \r\n\r\nBased on the tally, we can decide if we need more time on this, or we can move onto the other issues.",
+          "createdAt": "2022-11-16T04:09:03Z",
+          "updatedAt": "2022-11-16T04:09:03Z"
+        },
+        {
+          "author": "kaywilliams",
+          "authorAssociation": "NONE",
+          "body": "\ud83d\udc4d\ud83c\udffc",
+          "createdAt": "2022-11-16T15:49:48Z",
+          "updatedAt": "2022-11-16T15:49:48Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Steve, in my world an SBOM is an artifact and the SBOM owner makes a \"statement\" indicating the SBOM artifact is trustworthy. A 3rd party examines the Statement and decides to issue a claim indicating that the SBOM artifact is indeed trustworthy and places a \"Transparent Claim\" into the registry indicating that the SBOM artifact is trustworthy.\r\n\r\nAt some later time a consumer acquires the SBOM artifact and want to know, is this artifact trustworthy. A query is issued to the Transparency Service based on information about the artifact, i.e. SHA-256 hash value + SKID used to sign the artifact. Transparency Service returns a set of transparent claims in the registry for the SBOM artifact in question.\r\n\r\nNOTE: I use SBOM here, but this process should work for ANY artifact that a consumer wants to know, \"Is artifact X trustworthy?\"\r\n\r\nIf this scenario is supported within SCITT, then I'm good. Please correct me if I'm off-base in believing this scenario will be supported by SCITT.\r\nNOTE: In this scenario an SBOM is NOT a Statement, it is an artifact. ANY artifact that a consumer can acquire, and wants to check it's trustworthiness should be supported by SCITT, IMO\r\n",
+          "createdAt": "2022-11-16T16:02:03Z",
+          "updatedAt": "2022-11-16T16:31:44Z"
         }
       ]
     },
@@ -346,7 +465,47 @@
       "labels": [],
       "body": "At IETF 115 there were discussions on having some kind of standard way to deal with statements by reference. Here are also the two relevant slides from https://datatracker.ietf.org/doc/slides-115-scitt-combined-scitt-presentations/:\r\n\r\n![image](https://user-images.githubusercontent.com/530988/201730201-6160b331-33d9-42fa-b5d9-c1e8ac18bd15.png)\r\n![image](https://user-images.githubusercontent.com/530988/201730248-139b8be6-4554-4a09-b6a3-60e8a8e10ecd.png)\r\n\r\nSimply using COSE detached payloads as defined in the RFC would not be sufficient as the payload would still be required during signature validation when registering the signed statement.\r\n\r\nInstead, having a specific content type for referencing external statements may be useful. Note that this format by itself would be a statement.\r\n\r\n[RFC 9054](https://www.rfc-editor.org/rfc/rfc9054.html#name-example-cbor-hash-structure) gives two examples for such hash structures:\r\n\r\n```cddl\r\nCOSE_Hash_V = (\r\n    1 : int / tstr, # Algorithm identifier\r\n    2 : bstr, # Hash value\r\n    ? 3 : tstr, # Location of object that was hashed\r\n    ? 4 : any   # object containing other details and things\r\n    )\r\n```\r\n\r\nand \r\n\r\n```cddl\r\nCOSE_Hash_Find = [\r\n    hashAlg : int / tstr,\r\n    hashValue : bstr\r\n]\r\n```\r\n\r\n[SUIT's digest container](https://www.ietf.org/archive/id/draft-ietf-suit-manifest-21.html#name-suit-digest-container) defines this as:\r\n```cddl\r\nSUIT_Digest = [\r\n  suit-digest-algorithm-id : suit-cose-hash-algs,\r\n  suit-digest-bytes : bstr,\r\n  * $$SUIT_Digest-extensions   ; described as optional extra values required by a hash alg (?)\r\n]\r\n```\r\n\r\nWould having a variant of one of the above as a CBOR content type address this issue?\r\nShould location of the referenced content be included? How? Should location hints be globally unique? Resolvable?\r\nShould a SCITT transparency service know about this content type and at least validate its CDDL schema?",
       "createdAt": "2022-11-14T18:03:10Z",
-      "updatedAt": "2022-11-14T18:03:10Z",
+      "updatedAt": "2022-11-16T08:29:48Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Another thing to include in the reference should be the content type.",
+          "createdAt": "2022-11-16T08:29:47Z",
+          "updatedAt": "2022-11-16T08:29:47Z"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "id": "I_kwDOG2uWFs5WeZeX",
+      "title": "Refine definition of feed",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/36",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "A feed is a great base for how we can create a series of statements for different artifacts, getting freshness for a receipt/or VEX report.\r\nThe current definition likely needs to expand a bit to account for:\r\n- What are the versions of a specific artifact\r\n- What are all the statements for a version of an artifact\r\n- What is the latest statement for a specific contentType of a specific versioned artifact: (eg: what's the latest VEX for the `net-monitor:v1` software?\r\n- If the contentType is a referenced [statement by reference](#35), which stores SBOMs, VEX, Scan Reports, how do we drill into each if they all use the same payload contentType of satementByReference?\r\n",
+      "createdAt": "2022-11-16T04:06:37Z",
+      "updatedAt": "2022-11-16T04:06:37Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 37,
+      "id": "I_kwDOG2uWFs5WkD47",
+      "title": "RATS and SCITT",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/37",
+      "state": "OPEN",
+      "author": "kkarunakaran89",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "We need documentation around SCITT and RATS focusing on how they interact, overlap and what specific problems they solve (use case documentation) \r\nIssue created for tracking",
+      "createdAt": "2022-11-16T21:25:40Z",
+      "updatedAt": "2022-11-16T21:26:20Z",
       "closedAt": null,
       "comments": []
     }
