@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-17T00:40:15.923252+00:00",
+  "timestamp": "2022-11-20T00:43:43.700691+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "Terminology",
+      "description": "",
+      "color": "0E8A16"
     }
   ],
   "issues": [
@@ -270,10 +275,12 @@
         "ad-l",
         "kaywilliams"
       ],
-      "labels": [],
+      "labels": [
+        "Terminology"
+      ],
       "body": "At IETF-115, discussions involved:\r\n\r\n- Leverage existing IETF and/or W3C definitions and terms, or at least not conflict and cause confusion with existing terms.\r\n- Minimize the concept count\r\n\r\n### Existing Standards Terminology\r\n\r\n- [IETF: Remote Attestation Procedures Architecture (RATS)](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#name-artifacts)\r\n- [IETF: SCITT Architecture](https://ietf-scitt.github.io/draft-birkholz-scitt-architecture/draft-birkholz-scitt-architecture.html#name-terminology)\r\n- [IETF: RFC7519](https://www.ietf.org/archive/id/draft-ietf-rats-architecture-22.html#RFC7519)\r\n\r\n### Proposal\r\n\r\nClaim conflicts with RATS and W3C\r\n\r\nComparison of terms across orgs as the object changes state:\r\n![](https://hackmd.io/_uploads/SklGkMSBs.png)\r\n\r\nInstead of transitioning from `statement` to `claim` to `transparent claim`, what if we used `statement` as the base concept:\r\n- Statement --> Signed Statment --> Transparent Statement",
       "createdAt": "2022-11-06T17:39:44Z",
-      "updatedAt": "2022-11-16T16:31:44Z",
+      "updatedAt": "2022-11-19T18:11:46Z",
       "closedAt": null,
       "comments": [
         {
@@ -450,6 +457,41 @@
           "body": "Steve, in my world an SBOM is an artifact and the SBOM owner makes a \"statement\" indicating the SBOM artifact is trustworthy. A 3rd party examines the Statement and decides to issue a claim indicating that the SBOM artifact is indeed trustworthy and places a \"Transparent Claim\" into the registry indicating that the SBOM artifact is trustworthy.\r\n\r\nAt some later time a consumer acquires the SBOM artifact and want to know, is this artifact trustworthy. A query is issued to the Transparency Service based on information about the artifact, i.e. SHA-256 hash value + SKID used to sign the artifact. Transparency Service returns a set of transparent claims in the registry for the SBOM artifact in question.\r\n\r\nNOTE: I use SBOM here, but this process should work for ANY artifact that a consumer wants to know, \"Is artifact X trustworthy?\"\r\n\r\nIf this scenario is supported within SCITT, then I'm good. Please correct me if I'm off-base in believing this scenario will be supported by SCITT.\r\nNOTE: In this scenario an SBOM is NOT a Statement, it is an artifact. ANY artifact that a consumer can acquire, and wants to check it's trustworthiness should be supported by SCITT, IMO\r\n",
           "createdAt": "2022-11-16T16:02:03Z",
           "updatedAt": "2022-11-16T16:31:44Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "@rjb4standards, we've been discussing \"Artifact\" as the root object by which we're creating statements/claims, which may be SBOMs, Vex, VD, etc. \r\n\r\nWhile an SBOM itself can also be an \"artifact\", I'd suggest we find another category. I've been using the term \"evidence\" to support information about an Artifact (see [Artifacts, Claims Evidence](https://scitt.io/components/artifacts--claims-evidence.html), which needs updating. \r\n\r\nUsing your terminology:\r\n\r\n> an SBOM is an artifact and the SBOM owner makes a \"statement\" indicating the SBOM artifact is trustworthy.\r\n\r\nI'd suggest a minor tweak:\r\n\r\n> An SBOM owner submits a signed statement to the Transparency Service (see #38 for more terminology). If the Transparency Service returns a receipt, it's considered it came from a verified identity. \r\n\r\nAt IETF, we did discuss the challenges with putting SBOMs directly on the ledger, which is covered in #35. The end result would be the same. Meaning, you would still get the SBOM back, but it may come as link from a Transparency Service's associated storage, or an external reference if stored elsewhere.\r\n\r\nDoes that help?",
+          "createdAt": "2022-11-18T00:45:42Z",
+          "updatedAt": "2022-11-18T00:45:42Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Steve,Is this accurate:An ARTIFACT is the subject of a TRANSPARENT CLAIM listed in the TRUST REGISTRY of a TRANSPARENCY SERICEConsumers query \u00a0aTRUST SERVICE for TRANSPARENCY CLAIMS for ARTIFACTS in their possessio.\u00a0Im trying to figure out the bookennds.\u00a0Sent from my iPhoneOn Nov 17, 2022, at 7:45 PM, Steve Lasker ***@***.***> wrote:\ufeff\n@rjb4standards, we've been discussing \"Artifact\" as the root object by which we're creating statements/claims, which may be SBOMs, Vex, VD, etc.\nWhile an SBOM itself can also be an \"artifact\", I'd suggest we find another category. I've been using the term \"evidence\" to support information about an Artifact (see Artifacts, Claims Evidence, which needs updating.\nUsing your terminology:\n\nan SBOM is an artifact and the SBOM owner makes a \"statement\" indicating the SBOM artifact is trustworthy.\n\nI'd suggest a minor tweak:\n\nAn SBOM owner submits a signed statement to the Transparency Service (see #38 for more terminology). If the Transparency Service returns a receipt, it's considered it came from a verified identity.\n\nAt IETF, we did discuss the challenges with putting SBOMs directly on the ledger, which is covered in #35. The end result would be the same. Meaning, you would still get the SBOM back, but it may come as link from a Transparency Service's associated storage, or an external reference if stored elsewhere.\nDoes that help?\n\n\u2014Reply to this email directly, view it on GitHub, or unsubscribe.You are receiving this because you were mentioned.Message ID: ***@***.***>",
+          "createdAt": "2022-11-18T01:43:04Z",
+          "updatedAt": "2022-11-18T01:43:04Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Let me correct the record, and mis-spellings while using my cell phone\n\n \n\nIs this accurate:\n\n \n\nAn ARTIFACT is the subject of a TRANSPARENT CLAIM listed in the TRUST REGISTRY of a TRANSPARENCY SERVICE\n\n \n\nConsumers query  a TRANSPARENCY SERVICE for TRANSPARENT CLAIMS for ARTIFACTS in their possession. \n\n \n\nI\u2019m trying to figure out the bookends in the SCITT process. \n\n \n\nThanks,\n\n \n\nDick Brooks\n\n  \n\nActive Member of the CISA Critical Manufacturing Sector, \n\nSector Coordinating Council \u2013 A Public-Private Partnership\n\n \n\n <https://reliableenergyanalytics.com/products> Never trust software, always verify and report! \u2122\n\n <http://www.reliableenergyanalytics.com/> http://www.reliableenergyanalytics.com\n\nEmail:  ***@***.***> ***@***.***\n\nTel: +1 978-696-1788\n\n \n\nFrom: Dick Brooks ***@***.***> \nSent: Thursday, November 17, 2022 8:43 PM\nTo: ietf-scitt/draft-birkholz-scitt-architecture ***@***.***>\nCc: ietf-scitt/draft-birkholz-scitt-architecture ***@***.***>; Dick Brooks ***@***.***>; Mention ***@***.***>\nSubject: Re: [ietf-scitt/draft-birkholz-scitt-architecture] Converge Claim and Statement (Issue #34)\n\n \n\nSteve,\n\n \n\nIs this accurate:\n\nAn ARTIFACT is the subject of a TRANSPARENT CLAIM listed in the TRUST REGISTRY of a TRANSPARENCY SERICE\n\n \n\nConsumers query  aTRUST SERVICE for TRANSPARENCY CLAIMS for ARTIFACTS in their possessio. \n\n \n\nIm trying to figure out the bookennds. \n\nSent from my iPhone\n\n\n\n\n\nOn Nov 17, 2022, at 7:45 PM, Steve Lasker ***@***.***> wrote:\n\n\ufeff\n\n@rjb4standards <https://github.com/rjb4standards> , we've been discussing \"Artifact\" as the root object by which we're creating statements/claims, which may be SBOMs, Vex, VD, etc.\n\nWhile an SBOM itself can also be an \"artifact\", I'd suggest we find another category. I've been using the term \"evidence\" to support information about an Artifact (see Artifacts, Claims Evidence <https://scitt.io/components/artifacts--claims-evidence.html> , which needs updating.\n\nUsing your terminology:\n\nan SBOM is an artifact and the SBOM owner makes a \"statement\" indicating the SBOM artifact is trustworthy.\n\nI'd suggest a minor tweak:\n\nAn SBOM owner submits a signed statement to the Transparency Service (see #38 <https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/38>  for more terminology). If the Transparency Service returns a receipt, it's considered it came from a verified identity.\n\nAt IETF, we did discuss the challenges with putting SBOMs directly on the ledger, which is covered in #35 <https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/35> . The end result would be the same. Meaning, you would still get the SBOM back, but it may come as link from a Transparency Service's associated storage, or an external reference if stored elsewhere.\n\nDoes that help?\n\n\u2014\nReply to this email directly, view it on GitHub <https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/34#issuecomment-1319404328> , or unsubscribe <https://github.com/notifications/unsubscribe-auth/ABFI3NEMZXU6EWN4U3VPGHLWI3GUDANCNFSM6AAAAAARYQYTBM> .\nYou are receiving this because you were mentioned.Message ID: ***@***.***>\n\n",
+          "createdAt": "2022-11-18T20:30:10Z",
+          "updatedAt": "2022-11-18T20:30:10Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "Yup, that would do it. \r\nOf course, the terminology for \u201ctransparent claim\u201d or \u201ctransparent statement\u201d is the topic of this issue.\r\n",
+          "createdAt": "2022-11-19T18:06:31Z",
+          "updatedAt": "2022-11-19T18:06:31Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "Correcting the record for spelling mistakes and other ambiguities....\r\n\r\nAn ARTIFACT is the subject of a TRANSPARENT CLAIM listed in the TRUST REGISTRY of a TRANSPARENCY SERVICE\r\n\r\nConsumers query  a TRANSPARENCY SERVICE for TRANSPARENT CLAIMS for ARTIFACTS in their possession.\r\n\r\n\r\n\r\nI'm trying to figure out the bookends.",
+          "createdAt": "2022-11-19T18:11:46Z",
+          "updatedAt": "2022-11-19T18:11:46Z"
         }
       ]
     },
@@ -465,7 +507,7 @@
       "labels": [],
       "body": "At IETF 115 there were discussions on having some kind of standard way to deal with statements by reference. Here are also the two relevant slides from https://datatracker.ietf.org/doc/slides-115-scitt-combined-scitt-presentations/:\r\n\r\n![image](https://user-images.githubusercontent.com/530988/201730201-6160b331-33d9-42fa-b5d9-c1e8ac18bd15.png)\r\n![image](https://user-images.githubusercontent.com/530988/201730248-139b8be6-4554-4a09-b6a3-60e8a8e10ecd.png)\r\n\r\nSimply using COSE detached payloads as defined in the RFC would not be sufficient as the payload would still be required during signature validation when registering the signed statement.\r\n\r\nInstead, having a specific content type for referencing external statements may be useful. Note that this format by itself would be a statement.\r\n\r\n[RFC 9054](https://www.rfc-editor.org/rfc/rfc9054.html#name-example-cbor-hash-structure) gives two examples for such hash structures:\r\n\r\n```cddl\r\nCOSE_Hash_V = (\r\n    1 : int / tstr, # Algorithm identifier\r\n    2 : bstr, # Hash value\r\n    ? 3 : tstr, # Location of object that was hashed\r\n    ? 4 : any   # object containing other details and things\r\n    )\r\n```\r\n\r\nand \r\n\r\n```cddl\r\nCOSE_Hash_Find = [\r\n    hashAlg : int / tstr,\r\n    hashValue : bstr\r\n]\r\n```\r\n\r\n[SUIT's digest container](https://www.ietf.org/archive/id/draft-ietf-suit-manifest-21.html#name-suit-digest-container) defines this as:\r\n```cddl\r\nSUIT_Digest = [\r\n  suit-digest-algorithm-id : suit-cose-hash-algs,\r\n  suit-digest-bytes : bstr,\r\n  * $$SUIT_Digest-extensions   ; described as optional extra values required by a hash alg (?)\r\n]\r\n```\r\n\r\nWould having a variant of one of the above as a CBOR content type address this issue?\r\nShould location of the referenced content be included? How? Should location hints be globally unique? Resolvable?\r\nShould a SCITT transparency service know about this content type and at least validate its CDDL schema?",
       "createdAt": "2022-11-14T18:03:10Z",
-      "updatedAt": "2022-11-16T08:29:48Z",
+      "updatedAt": "2022-11-18T08:58:41Z",
       "closedAt": null,
       "comments": [
         {
@@ -474,6 +516,34 @@
           "body": "Another thing to include in the reference should be the content type.",
           "createdAt": "2022-11-16T08:29:47Z",
           "updatedAt": "2022-11-16T08:29:47Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "The COSE representations are killing me... I find them incredibly hard to process.\r\n\r\nHere is an example I am familiar with:\r\n\r\nhttps://blog.cloudflare.com/cloudflare-distributed-web-resolver/\r\nhttps://docs.ipfs.tech/concepts/content-addressing/\r\n\r\nhttps://ipfs.io/ipfs/QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR\r\nhttps://ipfs.io/ipfs/bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi\r\n\r\nhttps://docs.ipfs.tech/how-to/best-practices-for-nft-data/#types-of-ipfs-links-and-when-to-use-them\r\n\r\n```\r\nconst cid = await ipfs.add({ content }, {\r\n  cidVersion: 1,\r\n  hashAlg: 'sha2-256'\r\n})\r\n```\r\n\r\n`ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi`\r\n\r\nIf you don't want to use IPFS, but you want something similar, you can do what docker has been doing:\r\n\r\n`sha256:fc92eec5cac70b0c324cec2933cd7db1c0eae7c9e2649e42d02e77eb6da0d15f`\r\n\r\n^ this won't help you `resolve` or `dereference`, but it will help you `identify`.",
+          "createdAt": "2022-11-17T16:49:48Z",
+          "updatedAt": "2022-11-17T16:50:03Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "FYI: Sha256 ID's have been working well for over a year for our own registry SAG-CTR. Have not seen any collisions yet. ",
+          "createdAt": "2022-11-17T16:55:50Z",
+          "updatedAt": "2022-11-17T16:55:50Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "If you want to build a custom identifier scheme for statements you should consider the precedent of Data URIs:\r\n\r\nhttps://github.com/transmute-industries/did-method-meliorism/blob/f2a7d8673a7b49a6fae84c4348614109ff35409b/src/cli.js#L153\r\n\r\nhttps://en.wikipedia.org/wiki/Data_URI_scheme\r\n\r\n`data:text/vnd-example+xyz;foo=bar;base64,R0lGODdh`\r\n\r\n`data:text/vnd-scitt+claim;hash=sha256;content-type=application/vnd-cid+ipld;base64,R0lGODdh`\r\n\r\nSee also Tag 42: https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml\r\n",
+          "createdAt": "2022-11-17T16:56:45Z",
+          "updatedAt": "2022-11-17T16:56:45Z"
+        },
+        {
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "From back to front:\r\n\r\n> See also Tag 42: https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml\r\n\r\nCIDs use multicodec for identifying content types and those have to registered here: https://github.com/multiformats/multicodec/blob/master/table.csv. I think SCITT should allow CIDs in some way but it doesn't look like a general enough mechanism.\r\n\r\n> If you want to build a custom identifier scheme for statements you should consider the precedent of Data URIs:\r\n\r\nI think what you're suggesting is creating a new media type where the hash of the referenced data is the content and everything else is put into media type parameters, for example:\r\n\r\nMedia type: `application/scitt-statement-by-reference;hash=sha256;content-type=application/spdx`\r\nContent: binary sha256 hash of statement\r\n\r\nYou could put all that into a Data URI by base64 encoding the content (hash), but I don't see where this would go in the COSE envelope and how it interacts with the `cty` parameter. Base64 encoding the hash seems also a bit wasteful. I don't see how decoding such a Data URI is easier than decoding a CBOR structure to be honest.\r\n\r\n> The COSE representations are killing me... I find them incredibly hard to process.\r\n\r\nWhere exactly do you see problems in processing the CBOR representations? Would the same be true for an equivalent JSON representation?\r\n\r\n\r\nMy general feeling is that the detached use case may become the thing that's used exclusively in some settings, and so if we define a standard mechanism for that I think it should be as efficient as possible and not necessarily rely on text representations. In that sense, CBOR CIDs (as mentioned above) go in the right direction but are quite hard to decode (and introduce yet another format next to CBOR) and too limited I think (see above).",
+          "createdAt": "2022-11-18T08:58:41Z",
+          "updatedAt": "2022-11-18T08:58:41Z"
         }
       ]
     },
@@ -502,12 +572,74 @@
       "author": "kkarunakaran89",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "Terminology"
+      ],
       "body": "We need documentation around SCITT and RATS focusing on how they interact, overlap and what specific problems they solve (use case documentation) \r\nIssue created for tracking",
       "createdAt": "2022-11-16T21:25:40Z",
-      "updatedAt": "2022-11-16T21:26:20Z",
+      "updatedAt": "2022-11-18T00:33:11Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 38,
+      "id": "I_kwDOG2uWFs5WrbFt",
+      "title": "Registry & Transparency Service",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/38",
+      "state": "OPEN",
+      "author": "SteveLasker",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "mprorock",
+        "rjb4standards",
+        "kaywilliams",
+        "fournet",
+        "OR13"
+      ],
+      "labels": [
+        "Terminology"
+      ],
+      "body": "The architecture I-D, and other docs use Registry and Transparency Service (TS) interchangeably. \r\n\r\nThis issue is about consistent naming, and what we should use for an implementation that hosts the SCITT standards.  \r\nAs we've discussed various terms, I'm pasting a \"thousand words\" to highlight conceptual components.\r\n\r\n![image](https://user-images.githubusercontent.com/7647382/202588667-782e7227-ac9b-49f5-b740-0a2a27fd807d.png)\r\n\r\nHow do we finish this sentence:  \r\n*The user will submit a signed statement/claim (see issue #34) to the ___*\r\n\r\n1. The thing we're trying to name here, which is an implementation of a service.\r\n2. The **eNotary** component that evaluates the Registration Policy (3) before proceeding\r\n3. The **Registration Policy**, as the gatekeeper for what may be submitted to the ledger.\r\n4. The **eNotary** counter signing key/service\r\n5. The **ledger**, where statements/claims are persisted\r\n6. The ledger of a ___ (1) may be implemented through various \"ledger databases\", such as [Azure CCF](https://azure.microsoft.com/en-us/products/azure-confidential-ledger/), [QLDB](https://aws.amazon.com/qldb/), [Trillian](https://github.com/google/trillian)\r\n\r\nThis issue is to discuss what we call (1)\r\nPlease \"vote\" with a comment, representing a number, and any supporting thoughts:\r\n\r\n1. Transparency Service (with no acronym)\r\n2. Registry\r\n3. SCITT Implementation\r\n4. Transparency Service (TS as a acronym)\r\n5. _write in your own_",
+      "createdAt": "2022-11-18T00:28:58Z",
+      "updatedAt": "2022-11-18T22:18:34Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Transparency Service.\r\n\r\nWhy: It's much less confusing than \"registry\" which is used in lots of other contexts already.\r\n\r\nSide note: The functionality of eNotary and ledger is sometimes combined (e.g., CCF), and sometimes separate (e.g., Trillian and its personalities). ",
+          "createdAt": "2022-11-18T08:06:27Z",
+          "updatedAt": "2022-11-18T08:06:27Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "+1 for Transparency Service",
+          "createdAt": "2022-11-18T20:31:50Z",
+          "updatedAt": "2022-11-18T20:31:50Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "Sorry, one more clarification. \r\nShould we be using TS as an acronym, or expand out. It's just text :)\r\nI've added an additional (4)",
+          "createdAt": "2022-11-18T20:48:58Z",
+          "updatedAt": "2022-11-18T20:48:58Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "TS acronym is not offensive to me. Either way is ok with me.",
+          "createdAt": "2022-11-18T20:50:38Z",
+          "updatedAt": "2022-11-18T20:50:38Z"
+        },
+        {
+          "author": "kaywilliams",
+          "authorAssociation": "NONE",
+          "body": "I have a preference for expanding out ('Transparency Service') in the general case, and abbreviating as an exception under extreme space constraints (e.g. small box in a diagram).",
+          "createdAt": "2022-11-18T22:18:33Z",
+          "updatedAt": "2022-11-18T22:18:33Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2392,7 +2524,7 @@
       "labels": [],
       "body": "Signed-off-by: Steve Lasker <stevenlasker@hotmail.com>",
       "createdAt": "2022-10-07T18:29:42Z",
-      "updatedAt": "2022-10-21T16:13:17Z",
+      "updatedAt": "2022-11-18T00:31:39Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "75d68e6cf12c0de5d419fb8ee30c76db677da4ea",
@@ -2410,6 +2542,34 @@
           "body": "I still prefer TS to SCITT instance, as in this architecture it refers specifically to the core transparency service for SCITT. Perhaps SCITTS if TS is too overloaded?  ",
           "createdAt": "2022-10-21T13:10:43Z",
           "updatedAt": "2022-10-21T13:10:43Z"
+        },
+        {
+          "author": "yogeshbdeshpande",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Same comment as Cedric:\r\n\r\nI prefer Transparency Service, which is more logical term.\r\n\r\nSCITT Instance feels more like Implementation aspect!\r\n\r\n@SteveLasker Shall we close this PR then, without merging?",
+          "createdAt": "2022-11-17T12:17:47Z",
+          "updatedAt": "2022-11-17T12:17:47Z"
+        },
+        {
+          "author": "rjb4standards",
+          "authorAssociation": "NONE",
+          "body": "+1 Transparency Service",
+          "createdAt": "2022-11-17T12:25:32Z",
+          "updatedAt": "2022-11-17T12:25:32Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "+1 to Transparency Service",
+          "createdAt": "2022-11-17T13:29:15Z",
+          "updatedAt": "2022-11-17T13:29:15Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "After IETF, we've landed one set of terminology that SCITT is a set of standards and protocols, so changing this to SCITT Instance does feel wrong.\r\n\r\nWe also discussed not using acronyms, so would we expand TS to Transparency Service?\r\n\r\nWe also use the terminology Registry, interchangeably with TS/Transparency Service See [here](https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/30/files#diff-1812d688e87fa061cf31763fd9aa9d2426e327c292d4b3f03d604f7975220b79L518)\r\n\r\nI'm converting this to a draft, with (#38) to define what we should call an instance of the SCITT standards.",
+          "createdAt": "2022-11-18T00:30:37Z",
+          "updatedAt": "2022-11-18T00:30:37Z"
         }
       ],
       "reviews": [
@@ -2502,6 +2662,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 39,
+      "id": "PR_kwDOG2uWFs5DSrww",
+      "title": "Nits from WG Adoption review",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/pull/39",
+      "state": "OPEN",
+      "author": "cabo",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Technical comments to follow later",
+      "createdAt": "2022-11-19T22:31:36Z",
+      "updatedAt": "2022-11-19T22:58:39Z",
+      "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
+      "baseRefName": "main",
+      "baseRefOid": "78ccf903850d290a877461182efe07a9f865504b",
+      "headRepository": "cabo/draft-birkholz-scitt-architecture",
+      "headRefName": "adopt-nits",
+      "headRefOid": "0c1b8504d5595b3207e678a207be3d0fd2ffcbc8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
