@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-20T00:43:43.700691+00:00",
+  "timestamp": "2022-11-22T00:42:23.346383+00:00",
   "repo": "ietf-scitt/draft-birkholz-scitt-architecture",
   "labels": [
     {
@@ -507,7 +507,7 @@
       "labels": [],
       "body": "At IETF 115 there were discussions on having some kind of standard way to deal with statements by reference. Here are also the two relevant slides from https://datatracker.ietf.org/doc/slides-115-scitt-combined-scitt-presentations/:\r\n\r\n![image](https://user-images.githubusercontent.com/530988/201730201-6160b331-33d9-42fa-b5d9-c1e8ac18bd15.png)\r\n![image](https://user-images.githubusercontent.com/530988/201730248-139b8be6-4554-4a09-b6a3-60e8a8e10ecd.png)\r\n\r\nSimply using COSE detached payloads as defined in the RFC would not be sufficient as the payload would still be required during signature validation when registering the signed statement.\r\n\r\nInstead, having a specific content type for referencing external statements may be useful. Note that this format by itself would be a statement.\r\n\r\n[RFC 9054](https://www.rfc-editor.org/rfc/rfc9054.html#name-example-cbor-hash-structure) gives two examples for such hash structures:\r\n\r\n```cddl\r\nCOSE_Hash_V = (\r\n    1 : int / tstr, # Algorithm identifier\r\n    2 : bstr, # Hash value\r\n    ? 3 : tstr, # Location of object that was hashed\r\n    ? 4 : any   # object containing other details and things\r\n    )\r\n```\r\n\r\nand \r\n\r\n```cddl\r\nCOSE_Hash_Find = [\r\n    hashAlg : int / tstr,\r\n    hashValue : bstr\r\n]\r\n```\r\n\r\n[SUIT's digest container](https://www.ietf.org/archive/id/draft-ietf-suit-manifest-21.html#name-suit-digest-container) defines this as:\r\n```cddl\r\nSUIT_Digest = [\r\n  suit-digest-algorithm-id : suit-cose-hash-algs,\r\n  suit-digest-bytes : bstr,\r\n  * $$SUIT_Digest-extensions   ; described as optional extra values required by a hash alg (?)\r\n]\r\n```\r\n\r\nWould having a variant of one of the above as a CBOR content type address this issue?\r\nShould location of the referenced content be included? How? Should location hints be globally unique? Resolvable?\r\nShould a SCITT transparency service know about this content type and at least validate its CDDL schema?",
       "createdAt": "2022-11-14T18:03:10Z",
-      "updatedAt": "2022-11-18T08:58:41Z",
+      "updatedAt": "2022-11-21T17:03:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -544,6 +544,27 @@
           "body": "From back to front:\r\n\r\n> See also Tag 42: https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml\r\n\r\nCIDs use multicodec for identifying content types and those have to registered here: https://github.com/multiformats/multicodec/blob/master/table.csv. I think SCITT should allow CIDs in some way but it doesn't look like a general enough mechanism.\r\n\r\n> If you want to build a custom identifier scheme for statements you should consider the precedent of Data URIs:\r\n\r\nI think what you're suggesting is creating a new media type where the hash of the referenced data is the content and everything else is put into media type parameters, for example:\r\n\r\nMedia type: `application/scitt-statement-by-reference;hash=sha256;content-type=application/spdx`\r\nContent: binary sha256 hash of statement\r\n\r\nYou could put all that into a Data URI by base64 encoding the content (hash), but I don't see where this would go in the COSE envelope and how it interacts with the `cty` parameter. Base64 encoding the hash seems also a bit wasteful. I don't see how decoding such a Data URI is easier than decoding a CBOR structure to be honest.\r\n\r\n> The COSE representations are killing me... I find them incredibly hard to process.\r\n\r\nWhere exactly do you see problems in processing the CBOR representations? Would the same be true for an equivalent JSON representation?\r\n\r\n\r\nMy general feeling is that the detached use case may become the thing that's used exclusively in some settings, and so if we define a standard mechanism for that I think it should be as efficient as possible and not necessarily rely on text representations. In that sense, CBOR CIDs (as mentioned above) go in the right direction but are quite hard to decode (and introduce yet another format next to CBOR) and too limited I think (see above).",
           "createdAt": "2022-11-18T08:58:41Z",
           "updatedAt": "2022-11-18T08:58:41Z"
+        },
+        {
+          "author": "SteveLasker",
+          "authorAssociation": "NONE",
+          "body": "Have you considered PURLs:?\r\nHere's one we did a while back, specifically for this purpose: \r\nhttps://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst#oci\r\n\r\nWe also spent time discussing separating identity from location:\r\n- [Separating Identity From Location](https://stevelasker.blog/2021/09/24/separating-identity-from-location/)\r\n- and the purl discussion: [Decoupling Location from Identity - Is this in the scope of purl?](https://github.com/package-url/purl-spec/issues/127)",
+          "createdAt": "2022-11-21T16:06:31Z",
+          "updatedAt": "2022-11-21T16:08:54Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "body": "> Where exactly do you see problems in processing the CBOR representations?\r\n\r\nReadability and types... getting in the way of \"representative examples\".\r\n\r\nI prefer to argue over a representative example, and then map from it to existing building blocks, not the other way round.",
+          "createdAt": "2022-11-21T16:56:12Z",
+          "updatedAt": "2022-11-21T16:56:12Z"
+        },
+        {
+          "author": "letmaik",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Slides: \r\n[Discussion - Statement by reference.pdf](https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/files/10058535/Discussion.-.Statement.by.reference.pdf)\r\n",
+          "createdAt": "2022-11-21T17:03:30Z",
+          "updatedAt": "2022-11-21T17:03:30Z"
         }
       ]
     },
@@ -640,6 +661,22 @@
           "updatedAt": "2022-11-18T22:18:33Z"
         }
       ]
+    },
+    {
+      "number": 40,
+      "id": "I_kwDOG2uWFs5W7Pt3",
+      "title": "Define RATS and SCITT Terminology mapping",
+      "url": "https://github.com/ietf-scitt/draft-birkholz-scitt-architecture/issues/40",
+      "state": "OPEN",
+      "author": "yogeshbdeshpande",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This issue deals with documenting overlap between SCITT and RATS Terminology and identifying core differences",
+      "createdAt": "2022-11-21T18:08:29Z",
+      "updatedAt": "2022-11-21T18:08:29Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -2675,7 +2712,7 @@
       "labels": [],
       "body": "Technical comments to follow later",
       "createdAt": "2022-11-19T22:31:36Z",
-      "updatedAt": "2022-11-19T22:58:39Z",
+      "updatedAt": "2022-11-20T13:50:31Z",
       "baseRepository": "ietf-scitt/draft-birkholz-scitt-architecture",
       "baseRefName": "main",
       "baseRefOid": "78ccf903850d290a877461182efe07a9f865504b",
@@ -2687,7 +2724,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOG2uWFs5GxE1X",
+          "commit": {
+            "abbreviatedOid": "0c1b850"
+          },
+          "author": "mprorock",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "really appreciate the detailed eye towards grammar and structure here.\r\n\r\nthanks!",
+          "createdAt": "2022-11-20T13:50:31Z",
+          "updatedAt": "2022-11-20T13:50:31Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
